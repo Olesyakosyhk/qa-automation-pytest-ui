@@ -11,7 +11,7 @@ class BaseUI:
 
     def __init__(self, driver: WebKitGTK):
         self.driver = driver
-        self._wait = WebDriverWait(self.driver, timeout=settings.WEB_DRIVER_WAIT_TIMEOUT)
+        self.driver_wait = WebDriverWait(self.driver, timeout=settings.WEB_DRIVER_WAIT_TIMEOUT)
 
         self.url_base_host = settings.BASE_URL
 
@@ -19,7 +19,7 @@ class BaseUI:
         if timeout is not None and timeout != settings.WEB_DRIVER_WAIT_TIMEOUT:
             return WebDriverWait(driver=self.driver, timeout=timeout)
         else:
-            return self._wait
+            return self.driver_wait
 
     def find_and_wait_element(self, locator, timeout: Optional[int] = None):
         """
@@ -139,7 +139,13 @@ class BaseUI:
         """
         Для переключения фрейм.
         """
-        self._wait.until(EC.frame_to_be_available_and_switch_to_it(name_of_frame))
+        self.driver_wait.until(EC.frame_to_be_available_and_switch_to_it(name_of_frame))
+
+    def switch_to_alert(self):
+        """
+        Для переключения alert.
+        """
+        return self.driver.switch_to.alert
 
     def is_clickable(self, _tuple) -> bool:
         """
@@ -147,7 +153,7 @@ class BaseUI:
         """
         result = True
 
-        if self._wait.until(EC.element_to_be_clickable(_tuple)) is False:
+        if self.driver_wait.until(EC.element_to_be_clickable(_tuple)) is False:
             result = False
 
         return result
@@ -158,7 +164,7 @@ class BaseUI:
         """
         result = True
         for locator in locators_array:
-            if not self._wait.until(EC.element_to_be_clickable(locator)):
+            if not self.driver_wait.until(EC.element_to_be_clickable(locator)):
                 result = False
                 break
 
