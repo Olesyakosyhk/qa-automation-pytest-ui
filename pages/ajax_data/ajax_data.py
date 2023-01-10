@@ -5,6 +5,9 @@ from pages.base import BaseUI
 
 
 class AJAXData(BaseUI):
+    """
+    http://uitestingplayground.com/ajax
+    """
 
     AJAX_URL = f'{BASE_URL}/ajax'
 

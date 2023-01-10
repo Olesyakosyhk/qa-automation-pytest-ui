@@ -1,16 +1,22 @@
 from selenium.webdriver.common.by import By
 
+from core.settings import BASE_URL
 from pages.base import BaseUI
 
 
 class MainPage(BaseUI):
 
     # Локаторы...
-    DINAMIC_ID_BTN = (By.XPATH, '//a[contains(text(), "Dynamic ID")]')
+    DYNAMIC_ID_BTN = (By.XPATH, '//a[contains(text(), "Dynamic ID")]')
+
     CLASS_ATTRIBUTE_BTN = (By.XPATH, '//a[contains(text(), "Class Attribute")]')
+    CLASS_ATTRIBUTE_URL = f'{BASE_URL}/classattr'
+
+    AJAX_DATA_BTN = (By.XPATH, '//a[contains(text(), "AJAX Data")]')
+    AJAX_URL = f'{BASE_URL}/ajax'
+
     HIDDEN_LAYERS_BTN = (By.XPATH, '//a[contains(text(), "Hidden Layers")]')
     LOAD_DELAY_BTN = (By.XPATH, '//a[contains(text(), "Load Delay")]')
-    AJAX_DATA_BTN = (By.XPATH, '//a[contains(text(), "AJAX Data")]')
     CLICK_BTN = (By.XPATH, '//a[contains(text(), "Click")]')
     TEXT_INPUT_BTN = (By.XPATH, '//a[contains(text(), "Text Input")]')
     SCROLLBARS_BTN = (By.XPATH, '//a[contains(text(), "Scrollbars")]')
@@ -28,8 +34,17 @@ class MainPage(BaseUI):
     def go_to_playground_page(self) -> None:
         self.go_to_url(self.url_base_host)
 
-    def click_dinamic_id_btn(self) -> None:
-        self.find_and_wait_element(self.DINAMIC_ID_BTN).click()
+    def go_to_dynamic_id_page(self) -> None:
+        self.go_to_url(self.url_base_host)
+
+    def go_to_class_attribute_page(self) -> None:
+        self.go_to_url(self.CLASS_ATTRIBUTE_URL)
+
+    def go_to_ajax_url_page(self) -> None:
+        self.go_to_url(self.AJAX_URL)
+
+    def click_dynamic_id_btn(self) -> None:
+        self.find_and_wait_element(self.DYNAMIC_ID_BTN).click()
 
     def click_class_attribute_btn(self) -> None:
         self.find_and_wait_element(self.CLASS_ATTRIBUTE_BTN).click()
@@ -70,7 +85,7 @@ class MainPage(BaseUI):
     # Проверки...
     def check_for_all_elements_are_visible_by_selector(self) -> bool:
         selectors = [
-            self.DINAMIC_ID_BTN,
+            self.DYNAMIC_ID_BTN,
             self.CLASS_ATTRIBUTE_BTN,
             self.HIDDEN_LAYERS_BTN,
             self.LOAD_DELAY_BTN,
@@ -91,7 +106,7 @@ class MainPage(BaseUI):
 
     def check_element_is_clickable(self) -> bool:
         locators_array = [
-            self.DINAMIC_ID_BTN,
+            self.DYNAMIC_ID_BTN,
             self.CLASS_ATTRIBUTE_BTN,
             self.HIDDEN_LAYERS_BTN,
             self.LOAD_DELAY_BTN,

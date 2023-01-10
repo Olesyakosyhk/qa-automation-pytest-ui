@@ -5,6 +5,9 @@ from pages.base import BaseUI
 
 
 class ClassAttribute(BaseUI):
+    """
+    http://uitestingplayground.com/classattr
+    """
 
     CLASS_ATTRIBUTE_URL = f'{BASE_URL}/classattr'
 
