@@ -16,6 +16,8 @@ class MainPage(BaseUI):
     AJAX_URL = f'{BASE_URL}/ajax'
 
     HIDDEN_LAYERS_BTN = (By.XPATH, '//a[contains(text(), "Hidden Layers")]')
+    HIDDEN_LAYERS_URL = f'{BASE_URL}/hiddenlayers'
+
     LOAD_DELAY_BTN = (By.XPATH, '//a[contains(text(), "Load Delay")]')
     CLICK_BTN = (By.XPATH, '//a[contains(text(), "Click")]')
     TEXT_INPUT_BTN = (By.XPATH, '//a[contains(text(), "Text Input")]')
@@ -39,6 +41,9 @@ class MainPage(BaseUI):
 
     def go_to_class_attribute_page(self) -> None:
         self.go_to_url(self.CLASS_ATTRIBUTE_URL)
+
+    def go_to_hidden_layers_page(self) -> None:
+        self.go_to_url(self.HIDDEN_LAYERS_URL)
 
     def go_to_ajax_url_page(self) -> None:
         self.go_to_url(self.AJAX_URL)
