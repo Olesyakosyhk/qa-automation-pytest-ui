@@ -9,7 +9,7 @@ class TestClientSideDelay:
             playground_page: PlaygroundPage,
     ):
         with allure.step('Переход на страницу "client_side_delay"'):
-            playground_page.client_side_delay.go_to_client_delay_page()
+            playground_page.main_page.go_to_page(name_page='client_side_delay')
 
         with allure.step('Нажатие на кнопку'):
             playground_page.client_side_delay.click_blue_btn()

@@ -11,7 +11,7 @@ class TestAJAXData:
     ):
 
         with allure.step('Переход на страницу "ajax"'):
-            playground_page.main_page.click_ajax_data_btn()
+            playground_page.main_page.go_to_page(name_page='ajax_data')
 
         with allure.step('Проверка url страницы "ajax"'):
             assert playground_page.ajax_data.check_ajax_url()

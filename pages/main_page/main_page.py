@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 
 from core.settings import BASE_URL
 from pages.base import BaseUI
+from resources.enums import NamePageEnum
 
 
 class MainPage(BaseUI):
@@ -36,56 +37,38 @@ class MainPage(BaseUI):
     def go_to_playground_page(self) -> None:
         self.go_to_url(self.url_base_host)
 
-    def go_to_dynamic_id_page(self) -> None:
-        self.go_to_url(self.url_base_host)
-
     def go_to_class_attribute_page(self) -> None:
         self.go_to_url(self.CLASS_ATTRIBUTE_URL)
 
     def go_to_hidden_layers_page(self) -> None:
         self.go_to_url(self.HIDDEN_LAYERS_URL)
 
-    def go_to_ajax_url_page(self) -> None:
-        self.go_to_url(self.AJAX_URL)
-
-    def click_dynamic_id_btn(self) -> None:
-        self.find_and_wait_element(self.DYNAMIC_ID_BTN).click()
-
-    def click_class_attribute_btn(self) -> None:
-        self.find_and_wait_element(self.CLASS_ATTRIBUTE_BTN).click()
-
-    def click_hidden_layers_btn(self) -> None:
-        self.find_and_wait_element(self.HIDDEN_LAYERS_BTN).click()
+    def go_to_page(self, name_page) -> None:
+        pages = {
+            NamePageEnum.DYNAMIC_ID.value: f'{BASE_URL}/dynamicid',
+            NamePageEnum.CLASS_ATTRIBUTE.value: f'{BASE_URL}/classattr',
+            NamePageEnum.HIDDEN_LAYERS.value: f'{BASE_URL}/hiddenlayers',
+            NamePageEnum.LOAD_DELAY.value: f'{BASE_URL}/loaddelay',
+            NamePageEnum.AJAX_DATA.value: f'{BASE_URL}/ajax',
+            NamePageEnum.CLIENT_SIDE_DELAY.value: f'{BASE_URL}/clientdelay',
+            NamePageEnum.CLICK.value: f'{BASE_URL}/click',
+            NamePageEnum.TEXT_INPUT.value: f'{BASE_URL}/textinput',
+            NamePageEnum.SCROLLBARS.value: f'{BASE_URL}/scrollbars',
+            NamePageEnum.DYNAMIC_TABLE.value: f'{BASE_URL}/dynamictable',
+            NamePageEnum.VERIFY_TEXT.value: f'{BASE_URL}/verifytext',
+            NamePageEnum.PROGRESS_BAR.value: f'{BASE_URL}/progressbar',
+            NamePageEnum.VISIBILITY.value: f'{BASE_URL}/visibility',
+            NamePageEnum.SAMPLE_APP.value: f'{BASE_URL}/sampleapp',
+            NamePageEnum.MOUSE_OVER.value: f'{BASE_URL}/mouseover',
+            NamePageEnum.NON_BREAKING_SPACE.value: f'{BASE_URL}/nbsp',
+            NamePageEnum.OVERLAPPED_ELEMENT.value: f'{BASE_URL}/overlapped',
+            NamePageEnum.SHADOW_DOM.value: f'{BASE_URL}/shadowdom',
+        }
+        url_page = pages.get(name_page)
+        self.go_to_url(url_page)
 
     def click_load_delay_btn(self) -> None:
-        self.find_and_wait_element(self.LOAD_DELAY_BTN).click()
-
-    def click_ajax_data_btn(self) -> None:
-        self.find_and_wait_element(self.AJAX_DATA_BTN).click()
-
-    def click_verify_text_btn(self) -> None:
-        self.find_and_wait_element(self.VERIFY_TEXT_BTN).click()
-
-    def click_progress_bar_btn(self) -> None:
-        self.find_and_wait_element(self.PROGRESS_BAR_BTN).click()
-
-    def click_visibility_btn(self) -> None:
-        self.find_and_wait_element(self.VISIBILITY_BTN).click()
-
-    def click_sample_app_btn(self) -> None:
-        self.find_and_wait_element(self.SAMPLE_APP_BTN).click()
-
-    def click_mouse_over_btn(self) -> None:
-        self.find_and_wait_element(self.MOUSE_OVER_BTN).click()
-
-    def click_non_breaking_space_btn(self) -> None:
-        self.find_and_wait_element(self.NON_BREAKING_SPACE_BTN).click()
-
-    def click_overlapped_element_btn(self) -> None:
-        self.find_and_wait_element(self.OVERLAPPED_ELEMENT_BTN).click()
-
-    def click_shadow_dom_btn(self) -> None:
-        self.find_and_wait_element(self.SHADOW_DOM_BTN).click()
+        self.click_btn(self.LOAD_DELAY_BTN)
 
     # Проверки...
     def check_for_all_elements_are_visible_by_selector(self) -> bool:
