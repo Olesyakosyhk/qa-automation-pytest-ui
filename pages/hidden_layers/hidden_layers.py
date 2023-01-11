@@ -14,7 +14,7 @@ class HiddenLayers(BaseUI):
 
     # Функции...
     def click_green_btn(self) -> None:
-        self.find_and_wait_element(self.GREEN_BTN).click()
+        self.click_btn(self.GREEN_BTN)
 
     def check_blue_btn_is_present(self) -> bool:
         return self.find_and_wait_element(self.BLUE_BTN)

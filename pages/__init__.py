@@ -1,5 +1,6 @@
 from pages.ajax_data.ajax_data import AJAXData
 from pages.class_attribute.class_attribute import ClassAttribute
+from pages.client_side_delay.client_side_delay import ClientSideDelay
 from pages.dinamic_id.dinamic_id import DynamicID
 from pages.hidden_layers.hidden_layers import HiddenLayers
 from pages.load_delay.load_delay import LoadDelay
@@ -14,3 +15,4 @@ class PlaygroundPage:
         self.class_attribute = ClassAttribute(driver=browser)
         self.hidden_layers = HiddenLayers(driver=browser)
         self.load_delay = LoadDelay(driver=browser)
+        self.client_side_delay = ClientSideDelay(driver=browser)

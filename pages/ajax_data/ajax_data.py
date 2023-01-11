@@ -17,7 +17,7 @@ class AJAXData(BaseUI):
 
     # Функции...
     def click_triggering_ajax_request_btn(self) -> None:
-        self.find_and_wait_element(self.TRIGGERING_AJAX_REQUEST_BTN).click()
+        self.click_btn(self.TRIGGERING_AJAX_REQUEST_BTN)
 
     def check_ajax_url(self) -> bool:
         return self.get_current_url() == self.AJAX_URL

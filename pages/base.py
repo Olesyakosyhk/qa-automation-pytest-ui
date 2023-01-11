@@ -191,6 +191,10 @@ class BaseUI:
 
         return result
 
+    def click_btn(self, locator) -> None:
+        btn = self.find_and_wait_element(locator)
+        btn.click()
+
     def get_current_url(self) -> str:
         """
         Для определения текущего УРЛ.
