@@ -10,7 +10,7 @@ class TestClassAttribute:
             go_to_class_attribute_page,
     ):
         with allure.step('Нажать на синюю кнопку'):
-            playground_page.class_attribute.click_blue_btn()
+            playground_page.common_methods.click_blue_btn()
 
         with allure.step('Принять alert'):
             playground_page.class_attribute.accept_alert()

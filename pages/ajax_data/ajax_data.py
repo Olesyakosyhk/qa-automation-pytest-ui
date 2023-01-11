@@ -16,9 +16,6 @@ class AJAXData(BaseUI):
     LABEL = (By.CSS_SELECTOR, '[class="bg-success"]')
 
     # Функции...
-    def click_triggering_ajax_request_btn(self) -> None:
-        self.click_btn(self.TRIGGERING_AJAX_REQUEST_BTN)
-
     def check_ajax_url(self) -> bool:
         return self.get_current_url() == self.AJAX_URL
 

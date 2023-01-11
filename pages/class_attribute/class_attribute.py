@@ -13,10 +13,6 @@ class ClassAttribute(BaseUI):
     CLASS_ATTRIBUTE_URL = f'{BASE_URL}/classattr'
 
     # Функции...
-    def click_blue_btn(self) -> None:
-        btn = self.find_and_wait_elements(CommonLocators.BLUE_BTN)[0]
-        btn.click()
-
     def accept_alert(self):
         alert = self.switch_to_alert()
         alert.accept()

@@ -16,8 +16,8 @@ class TestAJAXData:
         with allure.step('Проверка url страницы "ajax"'):
             assert playground_page.ajax_data.check_ajax_url()
 
-        with allure.step('Нажатие на кнопку "TRIGGERING_AJAX_REQUEST"'):
-            playground_page.ajax_data.click_triggering_ajax_request_btn()
+        with allure.step('Нажать на синюю кнопку'):
+            playground_page.common_methods.click_blue_btn()
 
         with allure.step('Проверка лейбла'):
             assert playground_page.ajax_data.check_label_is_present()
