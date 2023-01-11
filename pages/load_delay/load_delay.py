@@ -1,5 +1,3 @@
-from selenium.webdriver.common.by import By
-
 from core.settings import BASE_URL
 from pages.base import BaseUI
 from resources.common_locators import CommonLocators

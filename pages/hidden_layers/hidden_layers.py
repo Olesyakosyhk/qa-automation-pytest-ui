@@ -1,5 +1,3 @@
-from selenium.webdriver.common.by import By
-
 from pages.base import BaseUI
 from resources.common_locators import CommonLocators
 

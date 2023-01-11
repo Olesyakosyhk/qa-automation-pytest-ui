@@ -2,7 +2,6 @@ import allure
 from faker import Faker
 
 from pages import PlaygroundPage
-from pages.common_methods import CommonMethods
 
 
 class TestTextInput:

@@ -6,10 +6,7 @@ from selenium.webdriver.remote.webdriver import WebDriver
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 
-from core.settings import (
-    CHROME_VERSION, FIREFOX_VERSION, INCLUDE_BROWSERS,
-)
-
+from core.settings import CHROME_VERSION, FIREFOX_VERSION, INCLUDE_BROWSERS
 
 BROWSER_NAME_TYPE = Literal['chrome', 'firefox']
 
