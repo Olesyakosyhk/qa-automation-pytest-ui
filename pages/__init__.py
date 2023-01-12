@@ -9,6 +9,7 @@ from pages.load_delay.load_delay import LoadDelay
 from pages.main_page.main_page import MainPage
 from pages.scrollbars.scrollbars import ScrollbarsPage
 from pages.text_input.text_input import TextInput
+from pages.verify_text.verify_text import VerifyText
 
 
 class PlaygroundPage:
@@ -24,3 +25,4 @@ class PlaygroundPage:
         self.click_page = ClickPage(driver=browser)
         self.text_input = TextInput(driver=browser)
         self.scrollbars = ScrollbarsPage(driver=browser)
+        self.verify_text = VerifyText(driver=browser)
