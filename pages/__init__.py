@@ -11,6 +11,7 @@ from pages.progress_bar.progress_bar import ProgressBar
 from pages.scrollbars.scrollbars import ScrollbarsPage
 from pages.text_input.text_input import TextInput
 from pages.verify_text.verify_text import VerifyText
+from pages.visibility_page.visibility_page import VisibilityPage
 
 
 class PlaygroundPage:
@@ -28,3 +29,4 @@ class PlaygroundPage:
         self.scrollbars = ScrollbarsPage(driver=browser)
         self.verify_text = VerifyText(driver=browser)
         self.progress_bar = ProgressBar(driver=browser)
+        self.visibility_page = VisibilityPage(driver=browser)
