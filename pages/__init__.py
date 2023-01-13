@@ -8,6 +8,7 @@ from pages.hidden_layers.hidden_layers import HiddenLayers
 from pages.load_delay.load_delay import LoadDelay
 from pages.main_page.main_page import MainPage
 from pages.progress_bar.progress_bar import ProgressBar
+from pages.sample_app.sample_app import SampleApp
 from pages.scrollbars.scrollbars import ScrollbarsPage
 from pages.text_input.text_input import TextInput
 from pages.verify_text.verify_text import VerifyText
@@ -30,3 +31,4 @@ class PlaygroundPage:
         self.verify_text = VerifyText(driver=browser)
         self.progress_bar = ProgressBar(driver=browser)
         self.visibility_page = VisibilityPage(driver=browser)
+        self.sample_app = SampleApp(driver=browser)
