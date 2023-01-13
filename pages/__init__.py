@@ -9,6 +9,7 @@ from pages.load_delay.load_delay import LoadDelay
 from pages.main_page.main_page import MainPage
 from pages.mouse_over_page.mouse_over_page import MouseOverPage
 from pages.non_breaking_space.non_breaking_space import NonBreakingSpace
+from pages.overlapped_element.overlapped_element import OverlappedElement
 from pages.progress_bar.progress_bar import ProgressBar
 from pages.sample_app.sample_app import SampleApp
 from pages.scrollbars.scrollbars import ScrollbarsPage
@@ -36,3 +37,4 @@ class PlaygroundPage:
         self.sample_app = SampleApp(driver=browser)
         self.mouse_over = MouseOverPage(driver=browser)
         self.non_breaking_space = NonBreakingSpace(driver=browser)
+        self.overlapped_element = OverlappedElement(driver=browser)
