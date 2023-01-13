@@ -3,6 +3,7 @@ from typing import Optional
 from selenium.webdriver import WebKitGTK
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.action_chains import ActionChains
 
 from core import settings
 
@@ -219,6 +220,15 @@ class BaseUI:
         """
         element = self.find_and_wait_element(locator)
         self.driver.execute_script('return arguments[0].scrollIntoView(true);', element)
+
+    def mouseover_to_element(self, locator) -> None:
+        """
+        Для наведения курсора до заданного элемента на странице
+        """
+        element = self.find_and_wait_element(locator)
+
+        hover = ActionChains(self.driver).move_to_element(element)
+        hover.perform()
 
     def switch_to_window(self, window_name):
         """

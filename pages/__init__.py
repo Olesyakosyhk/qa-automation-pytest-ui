@@ -7,6 +7,7 @@ from pages.dinamic_id.dinamic_id import DynamicID
 from pages.hidden_layers.hidden_layers import HiddenLayers
 from pages.load_delay.load_delay import LoadDelay
 from pages.main_page.main_page import MainPage
+from pages.mouse_over_page.mouse_over_page import MouseOverPage
 from pages.progress_bar.progress_bar import ProgressBar
 from pages.sample_app.sample_app import SampleApp
 from pages.scrollbars.scrollbars import ScrollbarsPage
@@ -32,3 +33,4 @@ class PlaygroundPage:
         self.progress_bar = ProgressBar(driver=browser)
         self.visibility_page = VisibilityPage(driver=browser)
         self.sample_app = SampleApp(driver=browser)
+        self.mouse_over = MouseOverPage(driver=browser)
