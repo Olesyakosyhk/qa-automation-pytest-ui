@@ -1,15 +1,15 @@
 import allure
 
-from pages import PlaygroundPage
+from pages import Pages
 
 
 class TestVisibilityPage:
     def test_visibility_page_positive(
             self,
-            playground_page: PlaygroundPage,
+            playground_page: Pages,
     ):
         with allure.step('Переход на страницу "visibility"'):
-            playground_page.main_page.go_to_page(name_page='visibility')
+            playground_page.visibility_page.go_to_page()
 
         with allure.step('Проверка видимости всех кнопок: синяя, желтая, красная, зеленая'):
             assert playground_page.visibility_page.check_is_elements_present()
