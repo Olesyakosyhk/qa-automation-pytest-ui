@@ -1,9 +1,17 @@
 import allure
+import pytest
 
 from pages import Pages
 
 
+@allure.parent_suite('REGRESSION')
+@allure.suite('MouseOverPage')
+@pytest.mark.regression
+@pytest.mark.mouse_over_page
 class TestMouseOverPage:
+
+    @allure.title('Тест №15 для страницы "mouse_over".')
+    @allure.description('Проверка количества нажатий на ссылку.')
     def test_mouse_over_page_positive(
             self,
             playground_page: Pages,

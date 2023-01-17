@@ -1,10 +1,18 @@
 import allure
+import pytest
 from faker import Faker
 
 from pages import Pages
 
 
+@allure.parent_suite('REGRESSION')
+@allure.suite('OverlappedElementPage')
+@pytest.mark.regression
+@pytest.mark.overlapped_element_page
 class TestOverlappedElementPage:
+
+    @allure.title('Тест №17 для страницы "overlapped_element".')
+    @allure.description('Ввести в поле "Name" имя')
     def test_overlapped_element_positive(
             self,
             playground_page: Pages,

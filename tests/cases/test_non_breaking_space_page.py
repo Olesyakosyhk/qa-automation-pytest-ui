@@ -1,9 +1,17 @@
 import allure
+import pytest
 
 from pages import Pages
 
 
+@allure.parent_suite('REGRESSION')
+@allure.suite('NonBreakingSpacePage')
+@pytest.mark.regression
+@pytest.mark.non_breaking_space_page
 class TestNonBreakingSpacePage:
+
+    @allure.title('Тест №16 для страницы "non_breaking_space".')
+    @allure.description('Проверка наличия кнопки "My Button" по xpath.')
     def test_non_breaking_space_positive(
             self,
             playground_page: Pages,

@@ -4,7 +4,14 @@ import pytest
 from pages import Pages
 
 
+@allure.parent_suite('REGRESSION')
+@allure.suite('HiddenLayersPage')
+@pytest.mark.regression
+@pytest.mark.hidden_layers_page
 class TestHiddenLayersPage:
+
+    @allure.title('Тест №3 для страницы "hidden_layers_page".')
+    @allure.description('Проверка: нельзя нажать зеленую кнопку 2ды.')
     def test_hidden_layers_positive(
             self,
             playground_page: Pages,

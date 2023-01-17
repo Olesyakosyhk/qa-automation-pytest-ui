@@ -1,10 +1,18 @@
 import allure
+import pytest
 from faker import Faker
 
 from pages import Pages
 
 
+@allure.parent_suite('REGRESSION')
+@allure.suite('TextInputPage')
+@pytest.mark.regression
+@pytest.mark.text_input_page
 class TestTextInputPage:
+
+    @allure.title('Тест №8 для страницы "text_input".')
+    @allure.description('Поверить новое название синей кнопки')
     def test_text_input_btn(
             self,
             playground_page: Pages,

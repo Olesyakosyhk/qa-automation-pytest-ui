@@ -1,9 +1,17 @@
 import allure
+import pytest
 
 from pages import Pages
 
 
+@allure.parent_suite('REGRESSION')
+@allure.suite('ProgressBarPage')
+@pytest.mark.regression
+@pytest.mark.progress_bar_page
 class TestProgressBarPage:
+
+    @allure.title('Тест №12 для страницы "progress_bar".')
+    @allure.description('Проверка, что прогресс более/равен 75%.')
     def test_progress_bar_positive(
             self,
             playground_page: Pages,

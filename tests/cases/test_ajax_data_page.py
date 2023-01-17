@@ -1,9 +1,17 @@
 import allure
+import pytest
 
 from pages import Pages
 
 
+@allure.parent_suite('REGRESSION')
+@allure.suite('AJAXDataPage')
+@pytest.mark.regression
+@pytest.mark.ajax_data_page
 class TestAJAXDataPage:
+
+    @allure.title('Тест №5 для страницы "ajax_data".')
+    @allure.description('Ждем ответа при AJAX запросе. Проверка лейбла на странице AJAXData')
     def test_ajax_data_positive(
             self,
             playground_page: Pages,

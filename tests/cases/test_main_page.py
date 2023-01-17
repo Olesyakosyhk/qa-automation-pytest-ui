@@ -1,10 +1,17 @@
 import allure
+import pytest
 
 from pages import Pages
 
 
+@allure.parent_suite('REGRESSION')
+@allure.suite('MainPage')
+@pytest.mark.regression
+@pytest.mark.main_page
 class TestMainPage:
 
+    @allure.title('Тест №N для страницы "main_page".')
+    @allure.description('Проверка наличия и активности всех разделов платформы')
     def test_main_page_positive(
             self,
             playground_page: Pages,

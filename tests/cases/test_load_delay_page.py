@@ -1,9 +1,17 @@
 import allure
+import pytest
 
 from pages import Pages
 
 
+@allure.parent_suite('REGRESSION')
+@allure.suite('LoadDelayPage')
+@pytest.mark.regression
+@pytest.mark.load_delay_page
 class TestLoadDelayPage:
+
+    @allure.title('Тест №4 для страницы "load_delay".')
+    @allure.description('Проверка наличия кликабельной кнопки на странице.')
     def test_load_delay_positive(
             self,
             playground_page: Pages,
@@ -15,6 +23,8 @@ class TestLoadDelayPage:
         with allure.step('Проверка наличия кликабельной кнопки на странице "load_delay"'):
             assert playground_page.load_delay_page.check_btn_is_present()
 
+    @allure.title('Тест №4.2 для страницы "load_delay".')
+    @allure.description('Проверка url на странице "load_delay".')
     def test_load_delay_url(
             self,
             playground_page: Pages,

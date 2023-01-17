@@ -1,9 +1,17 @@
 import allure
+import pytest
 
 from pages import Pages
 
 
+@allure.parent_suite('REGRESSION')
+@allure.suite('ClickPage')
+@pytest.mark.regression
+@pytest.mark.click_page
 class TestClickPage:
+
+    @allure.title('Тест №7 для страницы "click".')
+    @allure.description('Поверка изменения цвета синей кнопки на зеленый')
     def test_click_page_positive(
             self,
             playground_page: Pages,

@@ -16,6 +16,7 @@ class MainPage(BasePage):
     AJAX_DATA_BTN = (By.XPATH, '//a[contains(text(), "AJAX Data")]')
     HIDDEN_LAYERS_BTN = (By.XPATH, '//a[contains(text(), "Hidden Layers")]')
     LOAD_DELAY_BTN = (By.XPATH, '//a[contains(text(), "Load Delay")]')
+    CLIENT_SIDE_DELAY_BTN = (By.XPATH, '//a[contains(text(), "Client Side Delay")]')
     CLICK_BTN = (By.XPATH, '//a[contains(text(), "Click")]')
     TEXT_INPUT_BTN = (By.XPATH, '//a[contains(text(), "Text Input")]')
     SCROLLBARS_BTN = (By.XPATH, '//a[contains(text(), "Scrollbars")]')
@@ -35,6 +36,8 @@ class MainPage(BasePage):
         HIDDEN_LAYERS_BTN,
         LOAD_DELAY_BTN,
         AJAX_DATA_BTN,
+        CLIENT_SIDE_DELAY_BTN,
+        CLICK_BTN,
         TEXT_INPUT_BTN,
         SCROLLBARS_BTN,
         DYNAMIC_TABLE_BTN,

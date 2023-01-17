@@ -1,9 +1,17 @@
 import allure
+import pytest
 
 from pages import Pages
 
 
+@allure.parent_suite('REGRESSION')
+@allure.suite('VisibilityPage')
+@pytest.mark.regression
+@pytest.mark.main_page
 class TestVisibilityPage:
+
+    @allure.title('Тест №13 для страницы "visibility".')
+    @allure.description('Проверка видимости всех кнопок на странице.')
     def test_visibility_page_positive(
             self,
             playground_page: Pages,

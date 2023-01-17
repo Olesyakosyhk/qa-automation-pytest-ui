@@ -1,10 +1,17 @@
 import allure
+import pytest
 
 from pages import Pages
 
 
+@allure.parent_suite('REGRESSION')
+@allure.suite('VerifyTextPage')
+@pytest.mark.regression
+@pytest.mark.verify_text_page
 class TestVerifyTextPage:
 
+    @allure.title('Тест №11 для страницы "verify_text".')
+    @allure.description('Проверка соответствия текста приветствия на странице.')
     def test_verify_text_positive(
             self,
             playground_page: Pages,
