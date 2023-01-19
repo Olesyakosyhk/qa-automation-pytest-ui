@@ -5,6 +5,7 @@ from pages.class_attribute_page import ClassAttributePage
 from pages.click_page import ClickPage
 from pages.client_side_delay_page import ClientSideDelayPage
 from pages.dinamic_id_page import DynamicIDPage
+from pages.dynamictable_page import DynamicTablePage
 from pages.hidden_layers_page import HiddenLayersPage
 from pages.load_delay_page import LoadDelayPage
 from pages.main_page import MainPage
@@ -48,3 +49,4 @@ class Pages:
         self.mouse_over_page = MouseOverPage(driver=driver, path='/mouseover')
         self.non_breaking_space_page = NonBreakingSpacePage(driver=driver, path='/nbsp')
         self.overlapped_element_page = OverlappedElementPage(driver=driver, path='/overlapped')
+        self.dynamic_table_page = DynamicTablePage(driver=driver, path='/dynamictable')

@@ -21,3 +21,4 @@ def pytest_configure(config) -> None:
     config.addinivalue_line('markers', 'scrollbars_page: marker for scrollbars_page tests')
     config.addinivalue_line('markers', 'text_input_page: marker for text_input_page tests')
     config.addinivalue_line('markers', 'verify_text_page: marker for verify_text_page tests')
+    config.addinivalue_line('markers', 'dynamic_table_page: marker for dynamic_table_page tests')

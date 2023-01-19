@@ -58,7 +58,18 @@ class BasePage:
 
         return web_driver_wait.until(
             method=EC.staleness_of(element),
-            message=f'Can\'t click element on the page {element}',
+            message=f'Can\'t find element on the page {element}',
+        )
+
+    def find_text_to_be_present_in_element(self, element, text: str, timeout: Optional[int] = None):
+        """
+        Для определения отсутствия элемента, ранее присутствующего в DOM страницы.
+        """
+        web_driver_wait: WebDriverWait = self._get_web_driver_wait(timeout=timeout)
+
+        return web_driver_wait.until(
+            method=EC.text_to_be_present_in_element(element, text),
+            message=f'Can\'t find element on the page {element}',
         )
 
     def wait_for_all_elements_are_visible_by_selector(self, selector_array: list | tuple) -> bool:
