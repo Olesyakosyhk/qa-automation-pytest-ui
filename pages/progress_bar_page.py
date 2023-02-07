@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 
 from components.button import Button
 from components.common_button import BlueButton
+from components.page_url import PageURL
 from pages.base_page import BasePage
 
 
@@ -27,6 +28,11 @@ class ProgressBarPage(BasePage):
             driver=self.driver,
             locator_type=By.ID,
             locator_path='stopButton',
+        )
+
+        self.progress_bar_page_url = PageURL(
+            driver=self.driver,
+            path='/progressbar',
         )
 
     # Локаторы...

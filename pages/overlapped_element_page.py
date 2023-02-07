@@ -1,5 +1,7 @@
 from selenium.webdriver.common.by import By
 
+from components.input import Input
+from components.page_url import PageURL
 from pages.base_page import BasePage
 
 
@@ -16,15 +18,21 @@ class OverlappedElementPage(BasePage):
         http://uitestingplayground.com/overlapped
     """
 
-    # Локаторы...
-    ID_INPUT = (By.ID, 'id')
-    NAME_INPUT = (By.ID, 'name')
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
-    def set_id(self, numb_id: str) -> None:
-        self.find_and_wait_element(self.ID_INPUT).send_keys(numb_id)
+        self.overlapped_page_url = PageURL(
+            driver=self.driver,
+            path='/overlapped',
+        )
 
-    def scroll_to_name_input(self) -> None:
-        self.page_scroll_to_locator(self.NAME_INPUT)
-
-    def set_name(self, name: str) -> None:
-        self.find_and_wait_element(self.NAME_INPUT).send_keys(name)
+        self.input_id = Input(
+            driver=self.driver,
+            locator_type=By.ID,
+            locator_path='id',
+        )
+        self.input_name = Input(
+            driver=self.driver,
+            locator_type=By.ID,
+            locator_path='name',
+        )

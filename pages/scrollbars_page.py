@@ -1,6 +1,6 @@
 from components.common_button import BlueButton
+from components.page_url import PageURL
 from pages.base_page import BasePage
-from resources.common_locators import CommonLocators
 
 
 __all__ = [
@@ -21,5 +21,7 @@ class ScrollbarsPage(BasePage):
 
         self.blue_button = BlueButton(driver=self.driver)
 
-    def scroll_to_blue_btn(self) -> None:
-        self.page_scroll_to_locator(CommonLocators.BLUE_BTN)
+        self.scrollbars_page_url = PageURL(
+            driver=self.driver,
+            path='/scrollbars',
+        )

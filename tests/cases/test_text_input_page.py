@@ -19,17 +19,18 @@ class TestTextInputPage:
             fake: Faker,
     ):
         with allure.step('Переход на страницу "text_input"'):
-            playground_page.text_input_page.go_to_page()
+            playground_page.text_input_page.text_input_page_url.go_to_page()
 
         with allure.step('Поверить кастомное название синей кнопки'):
-            assert playground_page.text_input_page.check_name_blue_btn()
+            assert playground_page.text_input_page.check_default_text_blue_btn()
 
-        with allure.step('Ввести новое имя кнопки'):
-            new_name = fake.name()
-            playground_page.text_input_page.input_name_for_btn(new_name=new_name)
+        new_text = fake.name()
+
+        with allure.step(f'Ввести новое имя кнопки {new_text}'):
+            playground_page.text_input_page.input_name.set_text(text=new_text)
 
         with allure.step('Нажать синюю кнопку'):
             playground_page.text_input_page.blue_button.click()
 
-        with allure.step(f'Поверить новое название {new_name} синей кнопки'):
-            assert playground_page.text_input_page.check_new_name_blue_btn(new_name=new_name)
+        with allure.step(f'Поверить новое название {new_text} синей кнопки'):
+            assert playground_page.text_input_page.blue_button.check_text(text=new_text)

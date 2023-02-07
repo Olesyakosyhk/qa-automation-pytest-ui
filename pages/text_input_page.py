@@ -1,8 +1,10 @@
 from selenium.webdriver.common.by import By
 
 from components.common_button import BlueButton
+from components.component import Component
+from components.input import Input
+from components.page_url import PageURL
 from pages.base_page import BasePage
-from resources.common_locators import CommonLocators
 
 
 __all__ = [
@@ -10,32 +12,29 @@ __all__ = [
 ]
 
 
-class TextInputPage(BasePage):
+class TextInputPage(BasePage, Component):
     """
     Учимся вводить текст в поле ввода.
 
     Page URL:
         http://uitestingplayground.com/textinput
     """
+    DEFAULT_TEXT_BTN = "Button That Should Change it's Name Based on Input Value"
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         self.blue_button = BlueButton(driver=self.driver)
 
-    # Локаторы...
-    INPUT_NAME = (By.ID, 'newButtonName')
-    CUSTOM_NAME_BTN = "Button That Should Change it's Name Based on Input Value"
+        self.text_input_page_url = PageURL(
+            driver=self.driver,
+            path='/textinput',
+        )
+        self.input_name = Input(
+            driver=self.driver,
+            locator_type=By.ID,
+            locator_path='newButtonName',
+        )
 
-    def input_name_for_btn(self, new_name: str) -> None:
-        new_btn_name = self.find_and_wait_element(self.INPUT_NAME)
-        new_btn_name.send_keys(new_name)
-
-    def click_blue_btn(self) -> None:
-        self.click_btn(CommonLocators.BLUE_BTN)
-
-    def check_name_blue_btn(self) -> bool:
-        return self.find_and_wait_element(CommonLocators.BLUE_BTN).text == self.CUSTOM_NAME_BTN
-
-    def check_new_name_blue_btn(self, new_name: str) -> bool:
-        return self.find_and_wait_element(CommonLocators.BLUE_BTN).text == new_name
+    def check_default_text_blue_btn(self) -> bool:
+        return self.blue_button.check_text(text=self.DEFAULT_TEXT_BTN)

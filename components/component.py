@@ -1,6 +1,6 @@
 from typing import Any
 
-from selenium.webdriver import WebKitGTK
+from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
@@ -20,7 +20,7 @@ class Component:
 
     def __init__(
             self,
-            driver: WebKitGTK,
+            driver: WebDriver,
             locator_type: LocatorType | None = None,
             locator_path: str | None = None,
     ) -> None:

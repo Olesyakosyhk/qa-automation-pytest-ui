@@ -1,7 +1,6 @@
 from components.common_button import BlueButton
-from components.button import Button
+from components.page_url import PageURL
 from pages.base_page import BasePage
-from resources.common_locators import CommonLocators
 
 
 __all__ = [
@@ -21,3 +20,8 @@ class LoadDelayPage(BasePage):
         super().__init__(*args, **kwargs)
 
         self.blue_button = BlueButton(driver=self.driver)
+
+        self.load_delay_page_url = PageURL(
+            driver=self.driver,
+            path='/loaddelay',
+        )

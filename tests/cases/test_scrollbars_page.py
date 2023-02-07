@@ -17,10 +17,10 @@ class TestScrollbarsPage:
             playground_page: Pages,
     ):
         with allure.step('Переход на страницу "scrollbars"'):
-            playground_page.scrollbars_page.go_to_page()
+            playground_page.scrollbars_page.scrollbars_page_url.go_to_page()
 
         with allure.step('Поскроллить до необходимой синей кнопки'):
-            playground_page.scrollbars_page.scroll_to_blue_btn()
+            playground_page.scrollbars_page.blue_button.scroll()
 
         with allure.step('Нажать синюю кнопку'):
             playground_page.scrollbars_page.blue_button.click()
@@ -32,7 +32,7 @@ class TestScrollbarsPage:
             playground_page: Pages,
     ):
         with allure.step('Переход на страницу "scrollbars".'):
-            playground_page.scrollbars_page.go_to_page()
+            playground_page.scrollbars_page.scrollbars_page_url.go_to_page()
 
         with allure.step('Нажать синюю кнопку без скролла.'):
             playground_page.scrollbars_page.blue_button.click()

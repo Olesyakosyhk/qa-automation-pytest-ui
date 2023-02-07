@@ -1,7 +1,8 @@
 from selenium.webdriver.common.by import By
 
+from components.common_button import BlueButton
+from components.page_url import PageURL
 from pages.base_page import BasePage
-from resources.common_locators import CommonLocators
 
 
 __all__ = [
@@ -17,6 +18,16 @@ class SampleAppPage(BasePage):
         http://uitestingplayground.com/sampleapp
     """
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.blue_button = BlueButton(driver=self.driver)
+
+        self.sample_app_page_url = PageURL(
+            driver=self.driver,
+            path='/sampleapp',
+        )
+
     # Локаторы...
     LOGIN_INPUT = (By.NAME, 'UserName')
     PASSWORD_INPUT = (By.NAME, 'Password')
@@ -30,7 +41,6 @@ class SampleAppPage(BasePage):
         _login = self.find_and_wait_element(self.LOGIN_INPUT)
         _login.send_keys(login)
         self.find_and_wait_element(self.PASSWORD_INPUT).send_keys(password)
-        self.click_btn(CommonLocators.BLUE_BTN)
 
     def do_login_via_log_pass(self, login: str, password: str) -> None:
         self._auth_by(login=login, password=password)

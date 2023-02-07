@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 
 from components.common_button import BlueButton
+from components.page_url import PageURL
 from pages.base_page import BasePage
 
 
@@ -23,6 +24,11 @@ class ClientSideDelayPage(BasePage):
         super().__init__(*args, **kwargs)
 
         self.blue_button = BlueButton(driver=self.driver)
+
+        self.client_side_delay_url = PageURL(
+            driver=self.driver,
+            path='/clientdelay',
+        )
 
     def check_label_text_is_present(self) -> bool:
         if self.find_and_wait_element(self.LABEL, 15):

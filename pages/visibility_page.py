@@ -1,8 +1,5 @@
-from selenium.webdriver.remote.webelement import WebElement
-
-from components.common_button import BlueButton, RedButton, YellowButton, GreenButton
+from components.common_button import BlueButton, GreenButton, RedButton, YellowButton
 from pages.base_page import BasePage
-from resources.common_locators import CommonLocators
 
 
 __all__ = [

@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
 
+from components.page_url import PageURL
 from pages.base_page import BasePage
 
 
@@ -26,6 +27,14 @@ class DynamicTablePage(BasePage):
 
     VALUE_TABLE_CHROME_CPU = (By.XPATH, '//div[3]/div[{y_param}]/span[{x_param}]')
     VALUE_CHROME_CPU = (By.CSS_SELECTOR, '[class="bg-warning"]')
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.dynamic_table_page_url = PageURL(
+            driver=self.driver,
+            path='/dynamictable',
+        )
 
     def _get_locator_by_param(self, locator: tuple, x_param: int, y_param: int,):
         return locator[0], locator[1].format(x_param=x_param, y_param=y_param)

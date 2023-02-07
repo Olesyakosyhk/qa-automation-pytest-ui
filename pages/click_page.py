@@ -1,4 +1,5 @@
 from components.common_button import BlueButton, GreenButton
+from components.page_url import PageURL
 from pages.base_page import BasePage
 
 
@@ -20,3 +21,8 @@ class ClickPage(BasePage):
 
         self.blue_button = BlueButton(driver=self.driver)
         self.green_button = GreenButton(driver=self.driver)
+
+        self.click_page_url = PageURL(
+            driver=self.driver,
+            path='/click',
+        )

@@ -19,13 +19,15 @@ class TestOverlappedElementPage:
             fake: Faker,
     ):
         with allure.step('Переход на страницу "overlapped_element"'):
-            playground_page.overlapped_element_page.go_to_page()
+            playground_page.overlapped_element_page.overlapped_page_url.go_to_page()
 
         with allure.step('Ввести в поле "id" номер id'):
-            playground_page.overlapped_element_page.set_id(str(fake.ssn()))
+            playground_page.overlapped_element_page.input_id.set_text(str(fake.ssn()))
 
         with allure.step('Проскроллить до поля "Name"'):
-            playground_page.overlapped_element_page.scroll_to_name_input()
+            playground_page.overlapped_element_page.scroll_page_to_element(
+                element=playground_page.overlapped_element_page.input_name.element,
+            )
 
         with allure.step('Ввести в поле "Name" имя'):
-            playground_page.overlapped_element_page.set_name(str(fake.name()))
+            playground_page.overlapped_element_page.input_name.set_text(str(fake.name()))

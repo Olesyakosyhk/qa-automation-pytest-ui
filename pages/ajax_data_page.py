@@ -3,6 +3,7 @@ from selenium.webdriver.remote.webelement import WebElement
 
 from components.button import Button
 from components.common_button import BlueButton
+from components.page_url import PageURL
 from pages.base_page import BasePage
 
 
@@ -28,6 +29,11 @@ class AJAXDataPage(BasePage):
             driver=self.driver,
             locator_type=By.ID,
             locator_path='ajaxButton',
+        )
+
+        self.ajax_page_url = PageURL(
+            driver=self.driver,
+            path='/ajax',
         )
 
     # Локаторы...

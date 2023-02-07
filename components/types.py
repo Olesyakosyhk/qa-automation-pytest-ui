@@ -1,4 +1,5 @@
-from typing import NewType, Literal
+from typing import Literal, NewType
+
 
 LocatorType = NewType(
     'LocatorType',

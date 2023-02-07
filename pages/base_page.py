@@ -5,6 +5,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
+from components.types import LocatorType
 from core import settings
 
 
@@ -140,12 +141,25 @@ class BasePage:
     def go_to_page(self) -> None:
         self.go_to_url(self.page_url)
 
-    def page_scroll_to_locator(self, locator) -> None:
+    def scroll_page_to_element(self, element) -> None:
         """
         Для скролла до заданного элемента на странице
         """
-        element = self.find_and_wait_element(locator)
-        self.driver.execute_script('return arguments[0].scrollIntoView(true);', element)
+        self.driver.execute_script(
+            'return arguments[0].scrollIntoView(true);',
+            element,
+        )
+
+    def scroll_page_to_locator(
+            self,
+            locator: tuple[LocatorType, str],
+    ) -> None:
+        """
+        Для скролла до заданного элемента на странице
+        """
+        self.scroll_page_to_element(
+            element=self.find_and_wait_element(locator),
+        )
 
     def mouseover_to_element(self, locator) -> None:
         """

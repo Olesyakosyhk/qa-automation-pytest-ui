@@ -17,7 +17,7 @@ class TestClickPage:
             playground_page: Pages,
     ):
         with allure.step('Переход на страницу "click_page"'):
-            playground_page.click_page.go_to_page()
+            playground_page.click_page.click_page_url.go_to_page()
 
         with allure.step('Нажать на синюю кнопку'):
             playground_page.click_page.blue_button.click()

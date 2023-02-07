@@ -19,7 +19,7 @@ class TestDynamicTablePage:
             playground_page: Pages,
     ):
         with allure.step('Переход на страницу "dynamic_table"'):
-            playground_page.dynamic_table_page.go_to_page()
+            playground_page.dynamic_table_page.dynamic_table_page_url.go_to_page()
 
         with allure.step('Получение для процесса Chrome значение загрузки процессора'):
             value_table_cpu = playground_page.dynamic_table_page.get_locator_chrome_cpu()

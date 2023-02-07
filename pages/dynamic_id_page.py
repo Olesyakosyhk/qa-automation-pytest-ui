@@ -1,8 +1,6 @@
-from selenium.webdriver.remote.webelement import WebElement
-
 from components.common_button import BlueButton
+from components.page_url import PageURL
 from pages.base_page import BasePage
-from resources.common_locators import CommonLocators
 
 
 __all__ = [
@@ -22,3 +20,8 @@ class DynamicIDPage(BasePage):
         super().__init__(*args, **kwargs)
 
         self.blue_button = BlueButton(driver=self.driver)
+
+        self.dynamic_id_page_url = PageURL(
+            driver=self.driver,
+            path='/dynamicid',
+        )

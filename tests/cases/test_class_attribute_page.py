@@ -31,7 +31,7 @@ class TestClassAttributePage:
             go_to_class_attribute_page,
     ):
         with allure.step('Проверка url страницы "class_attribute"'):
-            assert playground_page.class_attribute_page.check_url()
+            assert playground_page.class_attribute_page.class_attr_page_url.check_url()
 
     @allure.title('Тест №2.3 для страницы "class_attribute".')
     @allure.description('Проверка присутствия всех кнопок страницы "class_attribute"')

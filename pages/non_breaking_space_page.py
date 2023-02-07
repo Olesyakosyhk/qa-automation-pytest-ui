@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 
 from components.button import Button
+from components.page_url import PageURL
 from pages.base_page import BasePage
 
 
@@ -24,4 +25,9 @@ class NonBreakingSpacePage(BasePage):
             driver=self.driver,
             locator_type=By.XPATH,
             locator_path='//button[contains(text(), "My Button")]',
+        )
+
+        self.nbsp_page_url = PageURL(
+            driver=self.driver,
+            path='/nbsp',
         )

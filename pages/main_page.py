@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 
 from components.button import Button
+from components.page_url import PageURL
 from pages.base_page import BasePage
 
 
@@ -10,6 +11,12 @@ __all__ = [
 
 
 class MainPage(BasePage):
+    """
+        Проверки на главной странице сайта.
+
+        Page URL:
+            http://uitestingplayground.com/
+        """
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -103,6 +110,11 @@ class MainPage(BasePage):
             driver=self.driver,
             locator_type=By.XPATH,
             locator_path='//a[contains(text(), "Shadow DOM")]',
+        )
+
+        self.main_page_url = PageURL(
+            driver=self.driver,
+            path='/',
         )
 
     def check_for_all_elements_are_visible_by_selector(self) -> bool:
