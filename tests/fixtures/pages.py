@@ -1,6 +1,6 @@
 import pytest
 
-from pages import Pages
+from app.pages import Pages
 
 
 @pytest.fixture()

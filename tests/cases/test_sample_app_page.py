@@ -2,7 +2,7 @@ import allure
 import pytest
 from faker import Faker
 
-from pages import Pages
+from app.pages import Pages
 
 
 @allure.parent_suite('REGRESSION')
