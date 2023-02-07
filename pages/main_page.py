@@ -112,6 +112,27 @@ class MainPage(BasePage):
             locator_path='//a[contains(text(), "Shadow DOM")]',
         )
 
+        self.elements = (
+            self.dynamic_id_button,
+            self.class_attribute_button,
+            self.ajax_data_button,
+            self.hidden_layers_button,
+            self.load_delay_button,
+            self.client_side_delay_button,
+            self.click_button,
+            self.text_input_button,
+            self.scrollbars_button,
+            self.verify_text_button,
+            self.dynamic_table_button,
+            self.progress_bar_button,
+            self.visibility_button,
+            self.sample_app_button,
+            self.mouse_over_button,
+            self.non_breaking_space_button,
+            self.overlapped_element_space_button,
+            self.shadow_dom_button,
+        )
+
         self.main_page_url = PageURL(
             driver=self.driver,
             path='/',
@@ -121,27 +142,7 @@ class MainPage(BasePage):
         """
         Для нахождения списка элементов в DOM страницы.
         """
-        elements = (
-            self.dynamic_id_button,
-            self.class_attribute_button,
-            self.ajax_data_button,
-            self.hidden_layers_button,
-            self.load_delay_button,
-            self.client_side_delay_button,
-            self.click_button,
-            self.text_input_button,
-            self.scrollbars_button,
-            self.verify_text_button,
-            self.dynamic_table_button,
-            self.progress_bar_button,
-            self.visibility_button,
-            self.sample_app_button,
-            self.mouse_over_button,
-            self.non_breaking_space_button,
-            self.overlapped_element_space_button,
-            self.shadow_dom_button,
-        )
-        for element in elements:
+        for element in self.elements:
             if element.find_and_wait_element() is False:
                 return False
 
@@ -151,27 +152,7 @@ class MainPage(BasePage):
         """
         Для нахождения списка активных элементов.
         """
-        elements = (
-            self.dynamic_id_button,
-            self.class_attribute_button,
-            self.ajax_data_button,
-            self.hidden_layers_button,
-            self.load_delay_button,
-            self.client_side_delay_button,
-            self.click_button,
-            self.text_input_button,
-            self.scrollbars_button,
-            self.verify_text_button,
-            self.dynamic_table_button,
-            self.progress_bar_button,
-            self.visibility_button,
-            self.sample_app_button,
-            self.mouse_over_button,
-            self.non_breaking_space_button,
-            self.overlapped_element_space_button,
-            self.shadow_dom_button,
-        )
-        for element in elements:
+        for element in self.elements:
             if not element.is_clickable():
                 return False
 

@@ -1,7 +1,7 @@
 from typing import Optional
 
-from selenium.webdriver import WebKitGTK
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
@@ -16,7 +16,11 @@ __all__ = [
 
 class BasePage:
 
-    def __init__(self, driver: WebKitGTK, path: str):
+    def __init__(
+            self,
+            driver: WebDriver,
+            path: str,
+    ) -> None:
         self.driver = driver
         self.driver_wait = WebDriverWait(self.driver, timeout=settings.WEB_DRIVER_WAIT_TIMEOUT)
 

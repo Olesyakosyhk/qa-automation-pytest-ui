@@ -118,3 +118,9 @@ class Component:
             method=EC.text_to_be_present_in_element(self.locator, text),
             message=f'Can\'t find element on the page {self.locator}',
         )
+
+    def check_text(self, text: str) -> bool:
+        return self.element.text == text
+
+    def get_attribute(self, name: str) -> str:
+        return self.element.get_attribute(name)

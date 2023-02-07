@@ -27,11 +27,5 @@ class Button(Component):
         hover = ActionChains(self.driver).move_to_element(self.element)
         hover.perform()
 
-    def scroll(self) -> None:
-        """
-        Для скролла до заданной кнопки на странице
-        """
-        self.driver.execute_script('return arguments[0].scrollIntoView(true);', self.element)
-
     def check_text(self, text: str) -> bool:
         return self.element.text == text

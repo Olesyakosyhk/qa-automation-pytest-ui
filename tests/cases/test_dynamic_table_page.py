@@ -17,7 +17,7 @@ class TestDynamicTablePage:
     def test_dynamic_table_page_positive(
             self,
             playground_page: Pages,
-    ):
+    ) -> None:
         with allure.step('Переход на страницу "dynamic_table"'):
             playground_page.dynamic_table_page.dynamic_table_page_url.go_to_page()
 
@@ -25,4 +25,6 @@ class TestDynamicTablePage:
             value_table_cpu = playground_page.dynamic_table_page.get_locator_chrome_cpu()
 
         with allure.step('Проверка на сравнение полученных данных cpu со значением на лэйбле.'):
-            assert playground_page.dynamic_table_page.check_value_chrome_cpu(value_table_cpu=value_table_cpu)
+            assert playground_page.dynamic_table_page.check_value_chrome_cpu(
+                value_table_cpu=value_table_cpu,
+            )

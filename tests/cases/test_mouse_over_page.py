@@ -29,4 +29,4 @@ class TestMouseOverPage:
             playground_page.mouse_over_page.modified_element_button.click()
 
         with allure.step('Проверка количества нажатий на ссылку'):
-            assert playground_page.mouse_over_page.check_the_link_clicked_times()
+            assert playground_page.mouse_over_page.counter.check_text('2')

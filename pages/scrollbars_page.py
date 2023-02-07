@@ -20,8 +20,12 @@ class ScrollbarsPage(BasePage):
         super().__init__(*args, **kwargs)
 
         self.blue_button = BlueButton(driver=self.driver)
-
         self.scrollbars_page_url = PageURL(
             driver=self.driver,
             path='/scrollbars',
+        )
+
+    def scroll_to_blue_btn(self) -> None:
+        self.scroll_page_to_element(
+            element=self.blue_button.element,
         )

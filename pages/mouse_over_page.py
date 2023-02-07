@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 
 from components.button import Button
 from components.page_url import PageURL
+from components.span import Span
 from pages.base_page import BasePage
 
 
@@ -31,13 +32,13 @@ class MouseOverPage(BasePage):
             locator_type=By.CSS_SELECTOR,
             locator_path='[class="text-warning"]',
         )
+        self.counter = Span(
+            driver=self.driver,
+            locator_type=By.ID,
+            locator_path='clickCount',
+        )
 
         self.mouseover_page_url = PageURL(
             driver=self.driver,
             path='/mouseover',
         )
-    # Локаторы...
-    LINK_CLICKED = (By.ID, 'clickCount')
-
-    def check_the_link_clicked_times(self) -> bool:
-        return self.find_and_wait_element(self.LINK_CLICKED).text == '2'

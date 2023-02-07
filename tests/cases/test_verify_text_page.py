@@ -21,4 +21,6 @@ class TestVerifyTextPage:
             playground_page.verify_text_page.go_to_page()
 
         with allure.step('Проверка соответствия текста приветствия на странице'):
-            assert playground_page.verify_text_page.check_finds_an_element()
+            assert playground_page.verify_text_page.target_text.check_text(
+                text='Welcome UserName!',
+            )

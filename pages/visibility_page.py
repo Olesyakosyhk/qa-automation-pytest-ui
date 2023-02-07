@@ -27,13 +27,12 @@ class VisibilityPage(BasePage):
         """
         Для нахождения списка элементов в DOM страницы.
         """
-        elements = [
+        for element in (
             self.blue_button,
             self.red_button,
             self.yellow_button,
             self.green_button,
-        ]
-        for element in elements:
+        ):
             if element.find_and_wait_element() is False:
                 return False
         return True

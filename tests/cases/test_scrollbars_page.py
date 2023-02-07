@@ -20,7 +20,7 @@ class TestScrollbarsPage:
             playground_page.scrollbars_page.scrollbars_page_url.go_to_page()
 
         with allure.step('Поскроллить до необходимой синей кнопки'):
-            playground_page.scrollbars_page.blue_button.scroll()
+            playground_page.scrollbars_page.scroll_to_blue_btn()
 
         with allure.step('Нажать синюю кнопку'):
             playground_page.scrollbars_page.blue_button.click()
