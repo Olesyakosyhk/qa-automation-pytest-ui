@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
-from selenium.webdriver.remote.webelement import WebElement
 
+from components.button import Button
 from pages.base_page import BasePage
 
 
@@ -17,8 +17,11 @@ class NonBreakingSpacePage(BasePage):
         http://uitestingplayground.com/nbsp
     """
 
-    # Локаторы...
-    MY_BTN = (By.XPATH, '//button[contains(text(), "My Button")]')
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
-    def check_btn_is_present(self) -> WebElement | bool:
-        return self.find_and_wait_element(self.MY_BTN)
+        self.my_button = Button(
+            driver=self.driver,
+            locator_type=By.XPATH,
+            locator_path='//button[contains(text(), "My Button")]',
+        )

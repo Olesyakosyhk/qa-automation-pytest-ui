@@ -20,4 +20,4 @@ class TestNonBreakingSpacePage:
             playground_page.non_breaking_space_page.go_to_page()
 
         with allure.step('Проверка наличия кнопки "My Button" по xpath'):
-            assert playground_page.non_breaking_space_page.check_btn_is_present()
+            assert playground_page.non_breaking_space_page.my_button.find_and_wait_element()

@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 
+from components.common_button import BlueButton
 from pages.base_page import BasePage
-from pages.mixins import BlueButtonMixin
 from resources.common_locators import CommonLocators
 
 
@@ -10,13 +10,18 @@ __all__ = [
 ]
 
 
-class TextInputPage(BasePage, BlueButtonMixin):
+class TextInputPage(BasePage):
     """
     Учимся вводить текст в поле ввода.
 
     Page URL:
         http://uitestingplayground.com/textinput
     """
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.blue_button = BlueButton(driver=self.driver)
 
     # Локаторы...
     INPUT_NAME = (By.ID, 'newButtonName')

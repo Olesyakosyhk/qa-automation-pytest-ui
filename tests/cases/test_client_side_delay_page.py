@@ -20,7 +20,7 @@ class TestClientSideDelayPage:
             playground_page.client_side_delay_page.go_to_page()
 
         with allure.step('Нажатие на кнопку'):
-            playground_page.client_side_delay_page.click_blue_btn()
+            playground_page.client_side_delay_page.blue_button.click()
 
         with allure.step('Проверка ожидания появления текста метки'):
             assert playground_page.client_side_delay_page.check_label_text_is_present()

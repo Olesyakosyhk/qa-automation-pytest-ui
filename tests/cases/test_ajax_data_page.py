@@ -25,7 +25,7 @@ class TestAJAXDataPage:
             assert playground_page.ajax_data_page.check_url()
 
         with allure.step('Нажать на синюю кнопку'):
-            playground_page.ajax_data_page.click_blue_btn()
+            playground_page.ajax_data_page.blue_button.click()
 
         with allure.step('Проверка лейбла'):
             assert playground_page.ajax_data_page.check_label_is_present()

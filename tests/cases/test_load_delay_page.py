@@ -21,7 +21,7 @@ class TestLoadDelayPage:
             playground_page.main_page.click_load_delay_btn()
 
         with allure.step('Проверка наличия кликабельной кнопки на странице "load_delay"'):
-            assert playground_page.load_delay_page.check_btn_is_present()
+            assert playground_page.load_delay_page.blue_button.find_and_wait_element()
 
     @allure.title('Тест №4.2 для страницы "load_delay".')
     @allure.description('Проверка url на странице "load_delay".')

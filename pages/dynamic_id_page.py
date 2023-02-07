@@ -1,5 +1,6 @@
 from selenium.webdriver.remote.webelement import WebElement
 
+from components.common_button import BlueButton
 from pages.base_page import BasePage
 from resources.common_locators import CommonLocators
 
@@ -17,8 +18,7 @@ class DynamicIDPage(BasePage):
            http://uitestingplayground.com/dynamicid
        """
 
-    def check_is_present_dynamic_id_btn(self) -> WebElement | bool:
-        return self.is_element_present(CommonLocators.BLUE_BTN)
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
-    def check_is_clickable_dynamic_id_btn(self) -> WebElement | bool:
-        return self.is_clickable(CommonLocators.BLUE_BTN)
+        self.blue_button = BlueButton(driver=self.driver)

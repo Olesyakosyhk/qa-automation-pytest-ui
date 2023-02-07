@@ -29,7 +29,7 @@ class TestTextInputPage:
             playground_page.text_input_page.input_name_for_btn(new_name=new_name)
 
         with allure.step('Нажать синюю кнопку'):
-            playground_page.text_input_page.click_blue_btn()
+            playground_page.text_input_page.blue_button.click()
 
         with allure.step(f'Поверить новое название {new_name} синей кнопки'):
             assert playground_page.text_input_page.check_new_name_blue_btn(new_name=new_name)

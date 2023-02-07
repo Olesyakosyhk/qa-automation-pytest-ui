@@ -4,4 +4,4 @@ from faker import Factory
 
 @pytest.fixture(scope='session')
 def fake():
-    return Factory.create()
+    return Factory.create('ru_RU')

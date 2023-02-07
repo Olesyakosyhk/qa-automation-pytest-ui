@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 
+from components.common_button import BlueButton
 from pages.base_page import BasePage
 
 
@@ -7,10 +8,8 @@ __all__ = [
     'ClientSideDelayPage',
 ]
 
-from pages.mixins import BlueButtonMixin
 
-
-class ClientSideDelayPage(BasePage, BlueButtonMixin):
+class ClientSideDelayPage(BasePage):
     """
     Учимся ждать появления элемента.
     Page URL:
@@ -19,6 +18,11 @@ class ClientSideDelayPage(BasePage, BlueButtonMixin):
 
     # Локаторы...
     LABEL = (By.CSS_SELECTOR, '[class="bg-success"]')
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.blue_button = BlueButton(driver=self.driver)
 
     def check_label_text_is_present(self) -> bool:
         if self.find_and_wait_element(self.LABEL, 15):

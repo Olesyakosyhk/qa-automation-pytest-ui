@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 
+from components.button import Button
 from pages.base_page import BasePage
 
 
@@ -10,53 +11,156 @@ __all__ = [
 
 class MainPage(BasePage):
 
-    # Локаторы...
-    DYNAMIC_ID_BTN = (By.XPATH, '//a[contains(text(), "Dynamic ID")]')
-    CLASS_ATTRIBUTE_BTN = (By.XPATH, '//a[contains(text(), "Class Attribute")]')
-    AJAX_DATA_BTN = (By.XPATH, '//a[contains(text(), "AJAX Data")]')
-    HIDDEN_LAYERS_BTN = (By.XPATH, '//a[contains(text(), "Hidden Layers")]')
-    LOAD_DELAY_BTN = (By.XPATH, '//a[contains(text(), "Load Delay")]')
-    CLIENT_SIDE_DELAY_BTN = (By.XPATH, '//a[contains(text(), "Client Side Delay")]')
-    CLICK_BTN = (By.XPATH, '//a[contains(text(), "Click")]')
-    TEXT_INPUT_BTN = (By.XPATH, '//a[contains(text(), "Text Input")]')
-    SCROLLBARS_BTN = (By.XPATH, '//a[contains(text(), "Scrollbars")]')
-    DYNAMIC_TABLE_BTN = (By.XPATH, '//a[contains(text(), "Dynamic Table")]')
-    VERIFY_TEXT_BTN = (By.XPATH, '//a[contains(text(), "Verify Text")]')
-    PROGRESS_BAR_BTN = (By.XPATH, '//a[contains(text(), "Progress Bar")]')
-    VISIBILITY_BTN = (By.XPATH, '//a[contains(text(), "Visibility")]')
-    SAMPLE_APP_BTN = (By.XPATH, '//a[contains(text(), "Sample App")]')
-    MOUSE_OVER_BTN = (By.XPATH, '//a[contains(text(), "Mouse Over")]')
-    NON_BREAKING_SPACE_BTN = (By.XPATH, '//a[contains(text(), "Non-Breaking Space")]')
-    OVERLAPPED_ELEMENT_BTN = (By.XPATH, '//a[contains(text(), "Overlapped Element")]')
-    SHADOW_DOM_BTN = (By.XPATH, '//a[contains(text(), "Shadow DOM")]')
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
-    SELECTORS = (
-        DYNAMIC_ID_BTN,
-        CLASS_ATTRIBUTE_BTN,
-        HIDDEN_LAYERS_BTN,
-        LOAD_DELAY_BTN,
-        AJAX_DATA_BTN,
-        CLIENT_SIDE_DELAY_BTN,
-        CLICK_BTN,
-        TEXT_INPUT_BTN,
-        SCROLLBARS_BTN,
-        DYNAMIC_TABLE_BTN,
-        VERIFY_TEXT_BTN,
-        PROGRESS_BAR_BTN,
-        VISIBILITY_BTN,
-        SAMPLE_APP_BTN,
-        MOUSE_OVER_BTN,
-        NON_BREAKING_SPACE_BTN,
-        OVERLAPPED_ELEMENT_BTN,
-        SHADOW_DOM_BTN,
-    )
+        self.dynamic_id_button = Button(
+            driver=self.driver,
+            locator_type=By.XPATH,
+            locator_path='//a[contains(text(), "Dynamic ID")]',
+        )
+        self.class_attribute_button = Button(
+            driver=self.driver,
+            locator_type=By.XPATH,
+            locator_path='//a[contains(text(), "Class Attribute")]',
+        )
+        self.ajax_data_button = Button(
+            driver=self.driver,
+            locator_type=By.XPATH,
+            locator_path='//a[contains(text(), "AJAX Data")]',
+        )
+        self.hidden_layers_button = Button(
+            driver=self.driver,
+            locator_type=By.XPATH,
+            locator_path='//a[contains(text(), "Hidden Layers")]',
+        )
+        self.load_delay_button = Button(
+            driver=self.driver,
+            locator_type=By.XPATH,
+            locator_path='//a[contains(text(), "Load Delay")]',
+        )
+        self.client_side_delay_button = Button(
+            driver=self.driver,
+            locator_type=By.XPATH,
+            locator_path='//a[contains(text(), "Client Side Delay")]',
+        )
+        self.click_button = Button(
+            driver=self.driver,
+            locator_type=By.XPATH,
+            locator_path='//a[contains(text(), "Click")]',
+        )
+        self.text_input_button = Button(
+            driver=self.driver,
+            locator_type=By.XPATH,
+            locator_path='//a[contains(text(), "Text Input")]',
+        )
+        self.scrollbars_button = Button(
+            driver=self.driver,
+            locator_type=By.XPATH,
+            locator_path='//a[contains(text(), "Scrollbars")]',
+        )
+        self.verify_text_button = Button(
+            driver=self.driver,
+            locator_type=By.XPATH,
+            locator_path='//a[contains(text(), "Verify Text")]',
+        )
+        self.dynamic_table_button = Button(
+            driver=self.driver,
+            locator_type=By.XPATH,
+            locator_path='//a[contains(text(), "Dynamic Table")]',
+        )
+        self.progress_bar_button = Button(
+            driver=self.driver,
+            locator_type=By.XPATH,
+            locator_path='//a[contains(text(), "Progress Bar")]',
+        )
+        self.visibility_button = Button(
+            driver=self.driver,
+            locator_type=By.XPATH,
+            locator_path='//a[contains(text(), "Visibility")]',
+        )
+        self.sample_app_button = Button(
+            driver=self.driver,
+            locator_type=By.XPATH,
+            locator_path='//a[contains(text(), "Sample App")]',
+        )
+        self.mouse_over_button = Button(
+            driver=self.driver,
+            locator_type=By.XPATH,
+            locator_path='//a[contains(text(), "Mouse Over")]',
+        )
+        self.non_breaking_space_button = Button(
+            driver=self.driver,
+            locator_type=By.XPATH,
+            locator_path='//a[contains(text(), "Non-Breaking Space")]',
+        )
+        self.overlapped_element_space_button = Button(
+            driver=self.driver,
+            locator_type=By.XPATH,
+            locator_path='//a[contains(text(), "Overlapped Element")]',
+        )
+        self.shadow_dom_button = Button(
+            driver=self.driver,
+            locator_type=By.XPATH,
+            locator_path='//a[contains(text(), "Shadow DOM")]',
+        )
 
-    def click_load_delay_btn(self) -> None:
-        self.click_btn(self.LOAD_DELAY_BTN)
-
-    # Проверки...
     def check_for_all_elements_are_visible_by_selector(self) -> bool:
-        return self.wait_for_all_elements_are_visible_by_selector(selector_array=self.SELECTORS)
+        """
+        Для нахождения списка элементов в DOM страницы.
+        """
+        elements = (
+            self.dynamic_id_button,
+            self.class_attribute_button,
+            self.ajax_data_button,
+            self.hidden_layers_button,
+            self.load_delay_button,
+            self.client_side_delay_button,
+            self.click_button,
+            self.text_input_button,
+            self.scrollbars_button,
+            self.verify_text_button,
+            self.dynamic_table_button,
+            self.progress_bar_button,
+            self.visibility_button,
+            self.sample_app_button,
+            self.mouse_over_button,
+            self.non_breaking_space_button,
+            self.overlapped_element_space_button,
+            self.shadow_dom_button,
+        )
+        for element in elements:
+            if element.find_and_wait_element() is False:
+                return False
+
+        return True
 
     def check_element_is_clickable(self) -> bool:
-        return self.is_clickable_elements(locators_array=self.SELECTORS)
+        """
+        Для нахождения списка активных элементов.
+        """
+        elements = (
+            self.dynamic_id_button,
+            self.class_attribute_button,
+            self.ajax_data_button,
+            self.hidden_layers_button,
+            self.load_delay_button,
+            self.client_side_delay_button,
+            self.click_button,
+            self.text_input_button,
+            self.scrollbars_button,
+            self.verify_text_button,
+            self.dynamic_table_button,
+            self.progress_bar_button,
+            self.visibility_button,
+            self.sample_app_button,
+            self.mouse_over_button,
+            self.non_breaking_space_button,
+            self.overlapped_element_space_button,
+            self.shadow_dom_button,
+        )
+        for element in elements:
+            if not element.is_clickable():
+                return False
+
+        return True

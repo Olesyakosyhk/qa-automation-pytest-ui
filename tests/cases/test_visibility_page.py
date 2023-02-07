@@ -23,16 +23,16 @@ class TestVisibilityPage:
             assert playground_page.visibility_page.check_is_elements_present()
 
         with allure.step('Нажать на синюю кнопку'):
-            red_btn = playground_page.visibility_page.click_blue_btn()
+            playground_page.visibility_page.blue_button.click()
 
         with allure.step('Проверка видимости синей кнопки'):
-            assert playground_page.visibility_page.check_visible_blue_btn()
+            assert playground_page.visibility_page.blue_button.find_and_wait_element()
 
         with allure.step('Проверка отсутствия красной кнопки'):
-            assert playground_page.visibility_page.check_visible_btn(element=red_btn)
+            assert playground_page.visibility_page.red_button.find_staleness_of_element()
 
         with allure.step('Проверка видимости зеленой кнопки'):
-            assert playground_page.visibility_page.check_visible_green_btn()
+            assert playground_page.visibility_page.green_button.find_and_wait_element()
 
         with allure.step('Проверка не видимости желтой кнопки'):
-            assert playground_page.visibility_page.check_visible_yellow_btn()
+            assert playground_page.visibility_page.yellow_button.find_and_wait_invisibility_element()

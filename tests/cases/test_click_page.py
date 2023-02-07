@@ -20,7 +20,7 @@ class TestClickPage:
             playground_page.click_page.go_to_page()
 
         with allure.step('Нажать на синюю кнопку'):
-            playground_page.click_page.click_blue_btn()
+            playground_page.click_page.blue_button.click()
 
         with allure.step('Поверка изменения цвета синей кнопки на зеленый'):
-            assert playground_page.click_page.check_green_btn_is_present()
+            assert playground_page.click_page.green_button.find_and_wait_element()

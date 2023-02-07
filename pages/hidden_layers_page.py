@@ -1,7 +1,5 @@
-from selenium.webdriver.remote.webelement import WebElement
-
+from components.common_button import BlueButton, GreenButton
 from pages.base_page import BasePage
-from resources.common_locators import CommonLocators
 
 
 __all__ = [
@@ -17,8 +15,9 @@ class HiddenLayersPage(BasePage):
         http://uitestingplayground.com/hiddenlayers
     """
 
-    def click_green_btn(self) -> None:
-        self.click_btn(CommonLocators.GREEN_BTN)
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
-    def check_blue_btn_is_present(self) -> WebElement | bool:
-        return self.find_and_wait_element(CommonLocators.BLUE_BTN)
+        self.blue_button = BlueButton(driver=self.driver)
+
+        self.green_button = GreenButton(driver=self.driver)

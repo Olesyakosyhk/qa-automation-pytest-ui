@@ -18,7 +18,7 @@ class TestClassAttributePage:
             go_to_class_attribute_page,
     ):
         with allure.step('Нажать на синюю кнопку'):
-            playground_page.class_attribute_page.click_blue_btn()
+            playground_page.class_attribute_page.blue_button.click()
 
         with allure.step('Принять alert'):
             playground_page.class_attribute_page.accept_alert()
@@ -41,7 +41,9 @@ class TestClassAttributePage:
             go_to_class_attribute_page,
     ):
         with allure.step('Проверка присутствия всех кнопок страницы "class_attribute"'):
-            assert playground_page.class_attribute_page.check_presents_btn()
+            assert playground_page.class_attribute_page.blue_button.find_and_wait_element()
+            assert playground_page.class_attribute_page.yellow_button.find_and_wait_element()
+            assert playground_page.class_attribute_page.green_button.find_and_wait_element()
 
     @allure.title('Тест №2.4 для страницы "class_attribute".')
     @allure.description('Проверка активности всех кнопок страницы "class_attribute"')
@@ -51,4 +53,6 @@ class TestClassAttributePage:
             go_to_class_attribute_page,
     ):
         with allure.step('Проверка активности всех кнопок страницы "class_attribute"'):
-            assert playground_page.class_attribute_page.check_btn_is_clickable_elements()
+            assert playground_page.class_attribute_page.blue_button.is_clickable()
+            assert playground_page.class_attribute_page.yellow_button.is_clickable()
+            assert playground_page.class_attribute_page.green_button.is_clickable()

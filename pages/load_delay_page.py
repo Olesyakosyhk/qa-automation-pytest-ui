@@ -1,5 +1,5 @@
-from selenium.webdriver.remote.webelement import WebElement
-
+from components.common_button import BlueButton
+from components.button import Button
 from pages.base_page import BasePage
 from resources.common_locators import CommonLocators
 
@@ -17,5 +17,7 @@ class LoadDelayPage(BasePage):
         http://uitestingplayground.com/loaddelay
     """
 
-    def check_btn_is_present(self) -> WebElement | bool:
-        return self.is_clickable(CommonLocators.BLUE_BTN)
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.blue_button = BlueButton(driver=self.driver)

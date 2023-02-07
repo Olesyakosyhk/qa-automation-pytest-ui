@@ -4,7 +4,7 @@ from pages.ajax_data_page import AJAXDataPage
 from pages.class_attribute_page import ClassAttributePage
 from pages.click_page import ClickPage
 from pages.client_side_delay_page import ClientSideDelayPage
-from pages.dinamic_id_page import DynamicIDPage
+from pages.dynamic_id_page import DynamicIDPage
 from pages.dynamictable_page import DynamicTablePage
 from pages.hidden_layers_page import HiddenLayersPage
 from pages.load_delay_page import LoadDelayPage

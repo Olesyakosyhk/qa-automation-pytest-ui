@@ -23,7 +23,7 @@ class TestScrollbarsPage:
             playground_page.scrollbars_page.scroll_to_blue_btn()
 
         with allure.step('Нажать синюю кнопку'):
-            playground_page.scrollbars_page.scroll_to_blue_btn()
+            playground_page.scrollbars_page.blue_button.click()
 
     @allure.title('Тест №9.2 для страницы "scrollbars".')
     @allure.description('Нажатие синей кнопки без скролла.')
@@ -35,4 +35,4 @@ class TestScrollbarsPage:
             playground_page.scrollbars_page.go_to_page()
 
         with allure.step('Нажать синюю кнопку без скролла.'):
-            playground_page.scrollbars_page.scroll_to_blue_btn()
+            playground_page.scrollbars_page.blue_button.click()

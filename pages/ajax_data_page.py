@@ -1,6 +1,8 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
 
+from components.button import Button
+from components.common_button import BlueButton
 from pages.base_page import BasePage
 
 
@@ -8,10 +10,8 @@ __all__ = [
     'AJAXDataPage',
 ]
 
-from pages.mixins import BlueButtonMixin
 
-
-class AJAXDataPage(BasePage, BlueButtonMixin):
+class AJAXDataPage(BasePage):
     """
     Учимся ждать ответа при AJAX запросе.
 
@@ -19,8 +19,18 @@ class AJAXDataPage(BasePage, BlueButtonMixin):
         http://uitestingplayground.com/ajax
     """
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.blue_button = BlueButton(driver=self.driver)
+
+        self.triggering_ajax_request_btn = Button(
+            driver=self.driver,
+            locator_type=By.ID,
+            locator_path='ajaxButton',
+        )
+
     # Локаторы...
-    TRIGGERING_AJAX_REQUEST_BTN = (By.ID, 'ajaxButton')
     LABEL = (By.CSS_SELECTOR, '[class="bg-success"]')
 
     def check_label_is_present(self) -> WebElement | bool:

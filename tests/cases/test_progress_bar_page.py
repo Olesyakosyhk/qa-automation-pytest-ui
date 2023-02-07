@@ -23,7 +23,7 @@ class TestProgressBarPage:
             playground_page.progress_bar_page.click_blue_btn()
 
         with allure.step('Нажать на кнопку "Stop", когда прогресс достигнет 75%'):
-            playground_page.progress_bar_page.click_stop_btn()
+            playground_page.progress_bar_page.blue_button.click()
 
         with allure.step('Проверка, что прогресс более/равен 75%'):
             playground_page.progress_bar_page.check_result_progress_bar()
