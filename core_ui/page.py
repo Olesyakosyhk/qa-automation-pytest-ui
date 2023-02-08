@@ -1,7 +1,7 @@
 from typing import Optional
 
-from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.remote.webdriver import WebDriver
+from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
@@ -28,13 +28,23 @@ class BasePage(PageURL):
         self.base_url = settings.BASE_URL
         self.page_url = f'{self.base_url}{path}'
 
-    def _get_web_driver_wait(self, timeout: Optional[int] = None) -> WebDriverWait:
+    def _get_web_driver_wait(
+            self,
+            timeout: Optional[int] = None,
+    ) -> WebDriverWait:
         if timeout is not None and timeout != settings.WEB_DRIVER_WAIT_TIMEOUT:
-            return WebDriverWait(driver=self.driver, timeout=timeout)
+            return WebDriverWait(
+                driver=self.driver,
+                timeout=timeout,
+            )
         else:
             return self.driver_wait
 
-    def find_and_wait_element(self, locator, timeout: Optional[int] = None):
+    def find_and_wait_element(
+            self,
+            locator: Locator,
+            timeout: Optional[int] = None,
+    ) -> WebElement:
         """
         Для нахождения видимого элемента в DOM страницы.
         """
@@ -45,7 +55,11 @@ class BasePage(PageURL):
             message=f'Can\'t find element by locator {locator}',
         )
 
-    def find_and_wait_invisibility_element(self, locator, timeout: Optional[int] = None):
+    def find_and_wait_invisibility_element(
+            self,
+            locator: Locator,
+            timeout: Optional[int] = None,
+    ) -> WebElement:
         """
         Для нахождения невидимого элемента на странице.
         """
@@ -56,7 +70,11 @@ class BasePage(PageURL):
             message=f'Can\'t find elements by locator {locator}',
         )
 
-    def find_staleness_of_element(self, element, timeout: int = 40):
+    def find_staleness_of_element(
+            self,
+            element: WebElement,
+            timeout: int = 40,
+    ) -> WebElement:
         """
         Для определения отсутствия элемента, ранее присутствующего в DOM страницы.
         """
@@ -67,9 +85,14 @@ class BasePage(PageURL):
             message=f'Can\'t find element on the page {element}',
         )
 
-    def find_text_to_be_present_in_element(self, element, text: str, timeout: Optional[int] = None):
+    def find_text_to_be_present_in_element(
+            self,
+            element: WebElement,
+            text: str,
+            timeout: Optional[int] = None,
+    ) -> bool:
         """
-        Для определения отсутствия элемента, ранее присутствующего в DOM страницы.
+        Проверка наличия текста в элементе.
         """
         web_driver_wait: WebDriverWait = self._get_web_driver_wait(timeout=timeout)
 
@@ -78,105 +101,15 @@ class BasePage(PageURL):
             message=f'Can\'t find element on the page {element}',
         )
 
-    def wait_for_all_elements_are_visible_by_selector(self, selector_array: list | tuple) -> bool:
-        """
-        Для нахождения списка элементов в DOM страницы.
-        """
-        result = True
-
-        for selector in selector_array:
-            if self.find_and_wait_element(selector) is False:
-                result = False
-                break
-
-        return result
-
-    def switch_to_alert(self):
-        """
-        Для переключения alert.
-        """
-        return self.driver.switch_to.alert
-
-    def is_clickable(self, _tuple) -> bool:
-        """
-        Для нахождения активного элемента.
-        """
-        result = True
-
-        if self.driver_wait.until(EC.element_to_be_clickable(_tuple)) is False:
-            result = False
-
-        return result
-
-    def is_clickable_elements(self, locators_array: list | tuple) -> bool:
-        """
-        Для нахождения списка активных элементов.
-        """
-        result = True
-        for locator in locators_array:
-            if not self.driver_wait.until(EC.element_to_be_clickable(locator)):
-                result = False
-                break
-
-        return result
-
-    def is_element_present(self, _tuple):
+    def is_element_present(
+            self,
+            locator: Locator,
+    ) -> bool:
         """
         Для нахождения видимого элемента в DOM страницы.
         """
         result = True
-        if self.find_and_wait_element(_tuple) is False:
+        if self.find_and_wait_element(locator) is False:
             result = False
 
         return result
-
-    def click_btn(self, locator) -> None:
-        btn = self.find_and_wait_element(locator)
-        btn.click()
-
-    def get_current_url(self) -> str:
-        """
-        Для определения текущего УРЛ.
-        """
-        return self.driver.current_url
-
-    def go_to_url(self, full_url: str) -> None:
-        self.driver.get(full_url)
-
-    def go_to_page(self) -> None:
-        self.go_to_url(self.page_url)
-
-    def scroll_page_to_element(self, element) -> None:
-        """
-        Для скролла до заданного элемента на странице
-        """
-        self.driver.execute_script(
-            'return arguments[0].scrollIntoView(true);',
-            element,
-        )
-
-    def scroll_page_to_locator(
-            self,
-            locator: Locator,
-    ) -> None:
-        """
-        Для скролла до заданного элемента на странице
-        """
-        self.scroll_page_to_element(
-            element=self.find_and_wait_element(locator),
-        )
-
-    def mouseover_to_locator(self, locator) -> None:
-        """
-        Для наведения курсора до заданного элемента на странице
-        """
-        element = self.find_and_wait_element(locator)
-
-        hover = ActionChains(self.driver).move_to_element(element)
-        hover.perform()
-
-    def check_url(self) -> bool:
-        """
-        Проверка url страницы
-        """
-        return self.get_current_url() == self.page_url

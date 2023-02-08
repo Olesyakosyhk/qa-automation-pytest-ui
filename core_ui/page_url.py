@@ -17,6 +17,12 @@ class PageURL:
         """
         return self.driver.current_url
 
+    def go_to_url(self, full_url: str) -> None:
+        self.driver.get(full_url)
+
+    def go_to_page(self) -> None:
+        self.go_to_url(self.page_url)
+
     def go_to_page_by_url(self) -> None:
         self.driver.get(self.page_url)
 

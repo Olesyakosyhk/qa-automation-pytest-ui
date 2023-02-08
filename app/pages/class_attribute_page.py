@@ -1,4 +1,5 @@
 from app.components.common_button import BlueButton, GreenButton, YellowButton
+from core_ui.components.alert import Alert
 from core_ui.page import BasePage
 
 
@@ -21,7 +22,4 @@ class ClassAttributePage(BasePage):
         self.blue_button = BlueButton(driver=self.driver)
         self.yellow_button = YellowButton(driver=self.driver)
         self.green_button = GreenButton(driver=self.driver)
-
-    def accept_alert(self) -> None:
-        alert = self.switch_to_alert()
-        alert.accept()
+        self.alert = Alert(driver=self.driver)

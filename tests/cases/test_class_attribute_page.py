@@ -21,7 +21,7 @@ class TestClassAttributePage:
             playground_page.class_attribute_page.blue_button.click()
 
         with allure.step('Принять alert'):
-            playground_page.class_attribute_page.accept_alert()
+            playground_page.class_attribute_page.alert.accept()
 
     @allure.title('Тест №2.2 для страницы "class_attribute".')
     @allure.description('Проверка url страницы "class_attribute"')
