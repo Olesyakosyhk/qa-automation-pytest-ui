@@ -15,14 +15,13 @@ class TestAJAXDataPage:
     def test_ajax_data_positive(
             self,
             playground_page: Pages,
-            go_to_main_page,
-    ):
-
+            go_to_main_page: None,
+    ) -> None:
         with allure.step('Переход на страницу "ajax"'):
-            playground_page.ajax_data_page.ajax_page_url.go_to_page_by_url()
+            playground_page.ajax_data_page.go_to_page_by_url()
 
         with allure.step('Проверка url страницы "ajax"'):
-            assert playground_page.ajax_data_page.ajax_page_url.check_url()
+            assert playground_page.ajax_data_page.check_url()
 
         with allure.step('Нажать на синюю кнопку'):
             playground_page.ajax_data_page.blue_button.click()

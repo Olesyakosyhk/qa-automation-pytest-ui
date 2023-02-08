@@ -17,9 +17,9 @@ class TestSampleAppPage:
             self,
             playground_page: Pages,
             fake: Faker,
-    ):
+    ) -> None:
         with allure.step('Переход на страницу "sample_app".'):
-            playground_page.sample_app_page.sample_app_page_url.go_to_page_by_url()
+            playground_page.sample_app_page.go_to_page_by_url()
 
         with allure.step('Авторизация пользователя.'):
             name = str(fake.first_name())

@@ -12,3 +12,9 @@ class Input(Component):
         Ввести текст.
         """
         self.element.send_keys(text)
+
+    def delete_text(self, text: str) -> None:
+        """
+        Удаление текста из поля.
+        """
+        self.element.clear()

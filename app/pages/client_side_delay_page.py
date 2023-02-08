@@ -3,7 +3,6 @@ from selenium.webdriver.common.by import By
 from app.components.common_button import BlueButton
 from core_ui.components import Component
 from core_ui.page import BasePage
-from core_ui.page_url import PageURL
 
 
 __all__ = [
@@ -25,11 +24,6 @@ class ClientSideDelayPage(BasePage):
             driver=self.driver,
             locator_type=By.CSS_SELECTOR,
             locator_path='[class="bg-success"]',
-        )
-
-        self.client_side_delay_url = PageURL(
-            driver=self.driver,
-            path='/clientdelay',
         )
 
     def check_label_text_is_present(self) -> bool:

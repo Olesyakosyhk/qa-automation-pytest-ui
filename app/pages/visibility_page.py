@@ -33,6 +33,6 @@ class VisibilityPage(BasePage):
             self.yellow_button,
             self.green_button,
         ):
-            if element.find_and_wait_element() is False:
+            if element.element is False:
                 return False
         return True

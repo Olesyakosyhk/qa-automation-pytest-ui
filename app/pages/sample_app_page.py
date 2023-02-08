@@ -3,7 +3,6 @@ from selenium.webdriver.common.by import By
 from app.components.common_button import BlueButton
 from core_ui.components import Input, Label
 from core_ui.page import BasePage
-from core_ui.page_url import PageURL
 
 
 __all__ = [
@@ -36,11 +35,6 @@ class SampleAppPage(BasePage):
             driver=self.driver,
             locator_type=By.ID,
             locator_path='loginstatus',
-        )
-
-        self.sample_app_page_url = PageURL(
-            driver=self.driver,
-            path='/sampleapp',
         )
 
     def _auth_by(

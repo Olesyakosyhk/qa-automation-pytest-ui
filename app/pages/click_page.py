@@ -1,6 +1,5 @@
 from app.components.common_button import BlueButton, GreenButton
 from core_ui.page import BasePage
-from core_ui.page_url import PageURL
 
 
 __all__ = [
@@ -21,8 +20,3 @@ class ClickPage(BasePage):
 
         self.blue_button = BlueButton(driver=self.driver)
         self.green_button = GreenButton(driver=self.driver)
-
-        self.click_page_url = PageURL(
-            driver=self.driver,
-            path='/click',
-        )

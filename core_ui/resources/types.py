@@ -1,6 +1,11 @@
 from typing import Literal, NewType
 
 
+__all__ = [
+    'LocatorType',
+    'Locator',
+]
+
 LocatorType = NewType(
     'LocatorType',
     Literal[
@@ -13,4 +18,9 @@ LocatorType = NewType(
         'class name',
         'css selector',
     ],
+)
+
+Locator = NewType(
+    'Locator',
+    tuple[LocatorType, str],
 )

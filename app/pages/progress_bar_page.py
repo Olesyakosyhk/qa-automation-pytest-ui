@@ -3,7 +3,6 @@ from selenium.webdriver.common.by import By
 from app.components.common_button import BlueButton
 from core_ui.components import Button, Component
 from core_ui.page import BasePage
-from core_ui.page_url import PageURL
 
 
 __all__ = [
@@ -33,11 +32,6 @@ class ProgressBarPage(BasePage):
             driver=self.driver,
             locator_type=By.ID,
             locator_path='progressBar',
-        )
-
-        self.progress_bar_page_url = PageURL(
-            driver=self.driver,
-            path='/progressbar',
         )
 
     def click_stop_btn(self) -> None:

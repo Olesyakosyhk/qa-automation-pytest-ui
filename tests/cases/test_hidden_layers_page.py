@@ -15,8 +15,8 @@ class TestHiddenLayersPage:
     def test_hidden_layers_positive(
             self,
             playground_page: Pages,
-            go_to_hidden_layers_page,
-    ):
+            go_to_hidden_layers_page: None,
+    ) -> None:
         with allure.step('Нажать на зеленую кнопку'):
             playground_page.hidden_layers_page.green_button.click()
 

@@ -15,9 +15,9 @@ class TestProgressBarPage:
     def test_progress_bar_positive(
             self,
             playground_page: Pages,
-    ):
+    ) -> None:
         with allure.step('Переход на страницу "progress_bar"'):
-            playground_page.progress_bar_page.progress_bar_page_url.go_to_page_by_url()
+            playground_page.progress_bar_page.go_to_page_by_url()
 
         with allure.step('Нажать на синюю кнопку "Start"'):
             playground_page.progress_bar_page.blue_button.click()

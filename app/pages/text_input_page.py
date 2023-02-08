@@ -3,7 +3,6 @@ from selenium.webdriver.common.by import By
 from app.components.common_button import BlueButton
 from core_ui.components import Input
 from core_ui.page import BasePage
-from core_ui.page_url import PageURL
 
 
 __all__ = [
@@ -25,10 +24,6 @@ class TextInputPage(BasePage):
 
         self.blue_button = BlueButton(driver=self.driver)
 
-        self.text_input_page_url = PageURL(
-            driver=self.driver,
-            path='/textinput',
-        )
         self.input_name = Input(
             driver=self.driver,
             locator_type=By.ID,

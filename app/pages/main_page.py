@@ -2,7 +2,6 @@ from selenium.webdriver.common.by import By
 
 from core_ui.components.link import Link
 from core_ui.page import BasePage
-from core_ui.page_url import PageURL
 
 
 __all__ = [
@@ -131,11 +130,6 @@ class MainPage(BasePage):
             self.non_breaking_space_link,
             self.overlapped_element_space_link,
             self.shadow_dom_link,
-        )
-
-        self.main_page_url = PageURL(
-            driver=self.driver,
-            path='/',
         )
 
     def check_for_all_elements_are_visible_by_selector(self) -> bool:

@@ -17,9 +17,9 @@ class TestTextInputPage:
             self,
             playground_page: Pages,
             fake: Faker,
-    ):
+    ) -> None:
         with allure.step('Переход на страницу "text_input"'):
-            playground_page.text_input_page.text_input_page_url.go_to_page_by_url()
+            playground_page.text_input_page.go_to_page_by_url()
 
         with allure.step('Поверить кастомное название синей кнопки'):
             assert playground_page.text_input_page.check_default_text_blue_btn()

@@ -1,6 +1,6 @@
 from app.components.common_button import BlueButton
 from core_ui.page import BasePage
-from core_ui.page_url import PageURL
+from core_ui.window import Window
 
 
 __all__ = [
@@ -8,7 +8,7 @@ __all__ = [
 ]
 
 
-class ScrollbarsPage(BasePage):
+class ScrollbarsPage(BasePage, Window):
     """
     Учимся скроллить до нужного элемента на странице.
 
@@ -20,10 +20,6 @@ class ScrollbarsPage(BasePage):
         super().__init__(*args, **kwargs)
 
         self.blue_button = BlueButton(driver=self.driver)
-        self.scrollbars_page_url = PageURL(
-            driver=self.driver,
-            path='/scrollbars',
-        )
 
     def scroll_to_blue_btn(self) -> None:
         self.scroll_page_to_element(

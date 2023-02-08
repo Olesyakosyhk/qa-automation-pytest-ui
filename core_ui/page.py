@@ -6,7 +6,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
 from core import settings
-from core_ui.resources.types import LocatorType
+from core_ui.page_url import PageURL
+from core_ui.resources.types import Locator
 
 
 __all__ = [
@@ -14,7 +15,7 @@ __all__ = [
 ]
 
 
-class BasePage:
+class BasePage(PageURL):
 
     def __init__(
             self,
@@ -156,7 +157,7 @@ class BasePage:
 
     def scroll_page_to_locator(
             self,
-            locator: tuple[LocatorType, str],
+            locator: Locator,
     ) -> None:
         """
         Для скролла до заданного элемента на странице
@@ -165,7 +166,7 @@ class BasePage:
             element=self.find_and_wait_element(locator),
         )
 
-    def mouseover_to_element(self, locator) -> None:
+    def mouseover_to_locator(self, locator) -> None:
         """
         Для наведения курсора до заданного элемента на странице
         """

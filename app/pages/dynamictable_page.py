@@ -2,7 +2,6 @@ from selenium.webdriver.common.by import By
 
 from core_ui.components import Component
 from core_ui.page import BasePage
-from core_ui.page_url import PageURL
 
 
 __all__ = [
@@ -29,11 +28,6 @@ class DynamicTablePage(BasePage):
             driver=self.driver,
             locator_type=By.CSS_SELECTOR,
             locator_path='[class="bg-warning"]',
-        )
-
-        self.dynamic_table_page_url = PageURL(
-            driver=self.driver,
-            path='/dynamictable',
         )
 
     def _build_component_value_table_chrome_cpu(

@@ -15,15 +15,15 @@ class TestMouseOverPage:
     def test_mouse_over_page_positive(
             self,
             playground_page: Pages,
-    ):
+    ) -> None:
         with allure.step('Переход на страницу "mouse_over"'):
-            playground_page.mouse_over_page.mouseover_page_url.go_to_page_by_url()
+            playground_page.mouse_over_page.go_to_page_by_url()
 
         with allure.step('Навести курсор мыши на кнопку'):
-            playground_page.mouse_over_page.original_element_btn.mouseover()
+            playground_page.mouse_over_page.mouseover_to_original_element_btn()
 
         with allure.step('2 клика по ссылке'):
-            playground_page.mouse_over_page.modified_element_button.click(counter=2)
+            playground_page.mouse_over_page.modified_element_button.click(count=2)
 
         with allure.step('Проверка количества нажатий на ссылку'):
             assert playground_page.mouse_over_page.counter.check_text('2')

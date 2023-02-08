@@ -15,12 +15,12 @@ class TestClickPage:
     def test_click_page_positive(
             self,
             playground_page: Pages,
-    ):
+    ) -> None:
         with allure.step('Переход на страницу "click_page"'):
-            playground_page.click_page.click_page_url.go_to_page_by_url()
+            playground_page.click_page.go_to_page_by_url()
 
         with allure.step('Нажать на синюю кнопку'):
             playground_page.click_page.blue_button.click()
 
         with allure.step('Поверка изменения цвета синей кнопки на зеленый'):
-            assert playground_page.click_page.green_button.find_and_wait_element()
+            assert playground_page.click_page.green_button.element

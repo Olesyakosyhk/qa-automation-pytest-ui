@@ -1,8 +1,9 @@
+from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 
 from core_ui.components import Button, Span
 from core_ui.page import BasePage
-from core_ui.page_url import PageURL
+from core_ui.window import Window
 
 
 __all__ = [
@@ -10,7 +11,7 @@ __all__ = [
 ]
 
 
-class MouseOverPage(BasePage):
+class MouseOverPage(BasePage, Window):
     """
     Наведение мыши на элемент может изменить DOM и сделать элемент недоступным.
 
@@ -20,6 +21,7 @@ class MouseOverPage(BasePage):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.action_chains = ActionChains(self.driver)
 
         self.original_element_btn = Button(
             driver=self.driver,
@@ -37,7 +39,5 @@ class MouseOverPage(BasePage):
             locator_path='clickCount',
         )
 
-        self.mouseover_page_url = PageURL(
-            driver=self.driver,
-            path='/mouseover',
-        )
+    def mouseover_to_original_element_btn(self) -> None:
+        self.mouseover_to_element(self.original_element_btn.element)

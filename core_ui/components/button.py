@@ -1,4 +1,3 @@
-from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
 
 from core_ui.components.component import Component
@@ -13,10 +12,26 @@ class Button(Component):
 
     def click(
             self,
-            counter: int = 1,
+            count: int = 1,
     ) -> None:
-        for i in range(counter):
+        for i in range(count):
             self.element.click()
+
+    def double_click(
+            self,
+    ) -> None:
+        """
+        Двойной клик
+        """
+        self.element.double_click()
+
+    def click_and_hold(
+            self,
+    ) -> None:
+        """
+        Нажатие и удерживание.
+        """
+        self.element.click_and_hold()
 
     def is_clickable(self) -> bool:
         """
@@ -26,10 +41,9 @@ class Button(Component):
 
     def mouseover(self) -> None:
         """
-        Для наведения курсора до заданного элемента на странице
+        Для наведения курсора до заданной кнопки
         """
-        hover = ActionChains(self.driver).move_to_element(self.element)
-        hover.perform()
+        self.action_chains.move_to_element(self.element).perform()
 
     def check_text(self, text: str) -> bool:
         """

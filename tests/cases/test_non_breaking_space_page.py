@@ -15,9 +15,9 @@ class TestNonBreakingSpacePage:
     def test_non_breaking_space_positive(
             self,
             playground_page: Pages,
-    ):
+    ) -> None:
         with allure.step('Переход на страницу "non_breaking_space"'):
-            playground_page.non_breaking_space_page.nbsp_page_url.go_to_page_by_url()
+            playground_page.non_breaking_space_page.go_to_page_by_url()
 
         with allure.step('Проверка наличия кнопки "My Button" по xpath'):
-            assert playground_page.non_breaking_space_page.my_button.find_and_wait_element()
+            assert playground_page.non_breaking_space_page.my_button.element

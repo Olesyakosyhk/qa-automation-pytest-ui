@@ -15,7 +15,7 @@ class TestVisibilityPage:
     def test_visibility_page_positive(
             self,
             playground_page: Pages,
-    ):
+    ) -> None:
         with allure.step('Переход на страницу "visibility"'):
             playground_page.visibility_page.go_to_page_by_url()
 
@@ -26,13 +26,13 @@ class TestVisibilityPage:
             playground_page.visibility_page.blue_button.click()
 
         with allure.step('Проверка видимости синей кнопки'):
-            assert playground_page.visibility_page.blue_button.find_and_wait_element()
+            assert playground_page.visibility_page.blue_button.element
 
         with allure.step('Проверка отсутствия красной кнопки'):
             assert playground_page.visibility_page.red_button.find_staleness_of_element()
 
         with allure.step('Проверка видимости зеленой кнопки'):
-            assert playground_page.visibility_page.green_button.find_and_wait_element()
+            assert playground_page.visibility_page.green_button.element
 
         with allure.step('Проверка не видимости желтой кнопки'):
             assert playground_page.visibility_page.yellow_button.find_and_wait_invisibility_element()

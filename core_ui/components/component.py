@@ -1,5 +1,6 @@
 from typing import Any
 
+from selenium.webdriver import ActionChains
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support import expected_conditions as EC
@@ -35,8 +36,9 @@ class Component:
             driver=self.driver,
             timeout=settings.WEB_DRIVER_WAIT_TIMEOUT,
         )
+        self.action_chains = ActionChains(self.driver)
 
-        self._locator: tuple[LocatorType, str] = (
+        self._locator = (
             self.locator_type,
             self.locator_path,
         )
