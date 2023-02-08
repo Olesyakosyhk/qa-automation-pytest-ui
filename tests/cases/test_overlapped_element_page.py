@@ -19,7 +19,7 @@ class TestOverlappedElementPage:
             fake: Faker,
     ):
         with allure.step('Переход на страницу "overlapped_element"'):
-            playground_page.overlapped_element_page.overlapped_page_url.go_to_page()
+            playground_page.overlapped_element_page.overlapped_page_url.go_to_page_by_url()
 
         with allure.step('Ввести в поле "id" номер id'):
             playground_page.overlapped_element_page.input_id.set_text(str(fake.ssn()))

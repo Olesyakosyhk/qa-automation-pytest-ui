@@ -17,16 +17,13 @@ class TestMouseOverPage:
             playground_page: Pages,
     ):
         with allure.step('Переход на страницу "mouse_over"'):
-            playground_page.mouse_over_page.mouseover_page_url.go_to_page()
+            playground_page.mouse_over_page.mouseover_page_url.go_to_page_by_url()
 
         with allure.step('Навести курсор мыши на кнопку'):
             playground_page.mouse_over_page.original_element_btn.mouseover()
 
-        with allure.step('Клик по ссылке'):
-            playground_page.mouse_over_page.modified_element_button.click()
-
-        with allure.step('2й клик по ссылке'):
-            playground_page.mouse_over_page.modified_element_button.click()
+        with allure.step('2 клика по ссылке'):
+            playground_page.mouse_over_page.modified_element_button.click(counter=2)
 
         with allure.step('Проверка количества нажатий на ссылку'):
             assert playground_page.mouse_over_page.counter.check_text('2')

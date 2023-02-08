@@ -30,7 +30,7 @@ class TestLoadDelayPage:
             playground_page: Pages,
     ):
         with allure.step('Переход на страницу "load_delay"'):
-            playground_page.load_delay_page.load_delay_page_url.go_to_page()
+            playground_page.load_delay_page.load_delay_page_url.go_to_page_by_url()
 
         with allure.step('Проверка url на странице "load_delay"'):
             assert playground_page.load_delay_page.check_url()

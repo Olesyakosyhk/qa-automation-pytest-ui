@@ -19,7 +19,7 @@ class TestDynamicIDPage:
             playground_page: Pages,
     ):
         with allure.step('Переход на страницу "dynamic_id"'):
-            playground_page.dynamic_id_page.dynamic_id_page_url.go_to_page()
+            playground_page.dynamic_id_page.dynamic_id_page_url.go_to_page_by_url()
 
         with allure.step('Проверка на наличие кнопки на странице.'):
             assert playground_page.dynamic_id_page.blue_button.find_and_wait_element()

@@ -17,7 +17,7 @@ class TestMainPage:
             playground_page: Pages,
     ):
         with allure.step('Переход на страницу площадки для UI Test'):
-            playground_page.main_page.main_page_url.go_to_page()
+            playground_page.main_page.main_page_url.go_to_page_by_url()
 
         with allure.step('Проверка наличия всех разделов платформы'):
             assert playground_page.main_page.check_for_all_elements_are_visible_by_selector()

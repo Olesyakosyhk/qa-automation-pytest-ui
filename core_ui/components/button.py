@@ -11,8 +11,12 @@ __all__ = [
 
 class Button(Component):
 
-    def click(self) -> None:
-        self.element.click()
+    def click(
+            self,
+            counter: int = 1,
+    ) -> None:
+        for i in range(counter):
+            self.element.click()
 
     def is_clickable(self) -> bool:
         """
@@ -28,4 +32,7 @@ class Button(Component):
         hover.perform()
 
     def check_text(self, text: str) -> bool:
+        """
+        Для проверки текста кнопки.
+        """
         return self.element.text == text

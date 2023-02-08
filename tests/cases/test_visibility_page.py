@@ -17,7 +17,7 @@ class TestVisibilityPage:
             playground_page: Pages,
     ):
         with allure.step('Переход на страницу "visibility"'):
-            playground_page.visibility_page.go_to_page()
+            playground_page.visibility_page.go_to_page_by_url()
 
         with allure.step('Проверка видимости всех кнопок: синяя, желтая, красная, зеленая'):
             assert playground_page.visibility_page.check_is_elements_present()

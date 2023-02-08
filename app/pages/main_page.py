@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 
-from core_ui.components import Button
+from core_ui.components.link import Link
 from core_ui.page import BasePage
 from core_ui.page_url import PageURL
 
@@ -21,116 +21,116 @@ class MainPage(BasePage):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        self.dynamic_id_button = Button(
+        self.dynamic_id_link = Link(
             driver=self.driver,
             locator_type=By.XPATH,
             locator_path='//a[contains(text(), "Dynamic ID")]',
         )
-        self.class_attribute_button = Button(
+        self.class_attribute_link = Link(
             driver=self.driver,
             locator_type=By.XPATH,
             locator_path='//a[contains(text(), "Class Attribute")]',
         )
-        self.ajax_data_button = Button(
+        self.ajax_data_link = Link(
             driver=self.driver,
             locator_type=By.XPATH,
             locator_path='//a[contains(text(), "AJAX Data")]',
         )
-        self.hidden_layers_button = Button(
+        self.hidden_layers_link = Link(
             driver=self.driver,
             locator_type=By.XPATH,
             locator_path='//a[contains(text(), "Hidden Layers")]',
         )
-        self.load_delay_button = Button(
+        self.load_delay_link = Link(
             driver=self.driver,
             locator_type=By.XPATH,
             locator_path='//a[contains(text(), "Load Delay")]',
         )
-        self.client_side_delay_button = Button(
+        self.client_side_delay_link = Link(
             driver=self.driver,
             locator_type=By.XPATH,
             locator_path='//a[contains(text(), "Client Side Delay")]',
         )
-        self.click_button = Button(
+        self.click_link = Link(
             driver=self.driver,
             locator_type=By.XPATH,
             locator_path='//a[contains(text(), "Click")]',
         )
-        self.text_input_button = Button(
+        self.text_input_link = Link(
             driver=self.driver,
             locator_type=By.XPATH,
             locator_path='//a[contains(text(), "Text Input")]',
         )
-        self.scrollbars_button = Button(
+        self.scrollbars_link = Link(
             driver=self.driver,
             locator_type=By.XPATH,
             locator_path='//a[contains(text(), "Scrollbars")]',
         )
-        self.verify_text_button = Button(
+        self.verify_text_link = Link(
             driver=self.driver,
             locator_type=By.XPATH,
             locator_path='//a[contains(text(), "Verify Text")]',
         )
-        self.dynamic_table_button = Button(
+        self.dynamic_table_link = Link(
             driver=self.driver,
             locator_type=By.XPATH,
             locator_path='//a[contains(text(), "Dynamic Table")]',
         )
-        self.progress_bar_button = Button(
+        self.progress_bar_link = Link(
             driver=self.driver,
             locator_type=By.XPATH,
             locator_path='//a[contains(text(), "Progress Bar")]',
         )
-        self.visibility_button = Button(
+        self.visibility_link = Link(
             driver=self.driver,
             locator_type=By.XPATH,
             locator_path='//a[contains(text(), "Visibility")]',
         )
-        self.sample_app_button = Button(
+        self.sample_app_link = Link(
             driver=self.driver,
             locator_type=By.XPATH,
             locator_path='//a[contains(text(), "Sample App")]',
         )
-        self.mouse_over_button = Button(
+        self.mouse_over_link = Link(
             driver=self.driver,
             locator_type=By.XPATH,
             locator_path='//a[contains(text(), "Mouse Over")]',
         )
-        self.non_breaking_space_button = Button(
+        self.non_breaking_space_link = Link(
             driver=self.driver,
             locator_type=By.XPATH,
             locator_path='//a[contains(text(), "Non-Breaking Space")]',
         )
-        self.overlapped_element_space_button = Button(
+        self.overlapped_element_space_link = Link(
             driver=self.driver,
             locator_type=By.XPATH,
             locator_path='//a[contains(text(), "Overlapped Element")]',
         )
-        self.shadow_dom_button = Button(
+        self.shadow_dom_link = Link(
             driver=self.driver,
             locator_type=By.XPATH,
             locator_path='//a[contains(text(), "Shadow DOM")]',
         )
 
         self.elements = (
-            self.dynamic_id_button,
-            self.class_attribute_button,
-            self.ajax_data_button,
-            self.hidden_layers_button,
-            self.load_delay_button,
-            self.client_side_delay_button,
-            self.click_button,
-            self.text_input_button,
-            self.scrollbars_button,
-            self.verify_text_button,
-            self.dynamic_table_button,
-            self.progress_bar_button,
-            self.visibility_button,
-            self.sample_app_button,
-            self.mouse_over_button,
-            self.non_breaking_space_button,
-            self.overlapped_element_space_button,
-            self.shadow_dom_button,
+            self.dynamic_id_link,
+            self.class_attribute_link,
+            self.ajax_data_link,
+            self.hidden_layers_link,
+            self.load_delay_link,
+            self.client_side_delay_link,
+            self.click_link,
+            self.text_input_link,
+            self.scrollbars_link,
+            self.verify_text_link,
+            self.dynamic_table_link,
+            self.progress_bar_link,
+            self.visibility_link,
+            self.sample_app_link,
+            self.mouse_over_link,
+            self.non_breaking_space_link,
+            self.overlapped_element_space_link,
+            self.shadow_dom_link,
         )
 
         self.main_page_url = PageURL(
