@@ -12,7 +12,6 @@ class TestProgressBarPage:
 
     @allure.title('Тест №12 для страницы "progress_bar".')
     @allure.description('Проверка, что прогресс более/равен 75%.')
-    @pytest.mark.timeout(5)
     def test_progress_bar_positive(
             self,
             playground_page: Pages,

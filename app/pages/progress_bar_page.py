@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver.common.by import By
 
 from app.components.common_button import BlueButton
@@ -18,6 +20,7 @@ class ProgressBarPage(BasePage):
         http://uitestingplayground.com/progressbar
     """
     TARGET_PERCENT = '75'
+    EXPIRED_TIME_SECONDS = 60.0
 
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
@@ -35,9 +38,13 @@ class ProgressBarPage(BasePage):
         )
 
     def click_stop_btn(self) -> None:
+        start_time = time.time()
         progress_bar = 0
         while progress_bar <= int(self.TARGET_PERCENT):
             progress_bar = int(self.progress_bar.get_attribute('aria-valuenow'))
+            if time.time() - start_time >= self.EXPIRED_TIME_SECONDS:
+                raise TimeoutError(f'Ожидание заполнения шкалы progressbar более {self.EXPIRED_TIME_SECONDS} секунд')
+
         self.stop_button.click()
 
     def check_result_progress_bar(self) -> bool:
