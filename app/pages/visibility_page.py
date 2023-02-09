@@ -35,4 +35,5 @@ class VisibilityPage(BasePage):
         ):
             if element.element is False:
                 return False
+
         return True
