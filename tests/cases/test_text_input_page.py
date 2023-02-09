@@ -22,7 +22,9 @@ class TestTextInputPage:
             playground_page.text_input_page.go_to_page_by_url()
 
         with allure.step('Поверить кастомное название синей кнопки'):
-            assert playground_page.text_input_page.check_default_text_blue_btn()
+            assert playground_page.text_input_page.blue_button.check_text(
+                text="Button That Should Change it's Name Based on Input Value",
+            )
 
         new_text = fake.name()
 

@@ -35,10 +35,10 @@ class ProgressBarPage(BasePage):
         )
 
     def click_stop_btn(self) -> None:
-        for i in range(10):
-            if self.progress_bar.get_attribute('aria-valuenow') >= self.TARGET_PERCENT:
-                self.click_btn(self.stop_button)
-                break
+        progress_bar = 0
+        while progress_bar <= int(self.TARGET_PERCENT):
+            progress_bar = int(self.progress_bar.get_attribute('aria-valuenow'))
+        self.stop_button.click()
 
     def check_result_progress_bar(self) -> bool:
         return self.progress_bar.get_attribute('aria-valuenow') >= self.TARGET_PERCENT

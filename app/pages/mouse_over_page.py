@@ -3,7 +3,6 @@ from selenium.webdriver.common.by import By
 
 from core_ui.components import Button, Span
 from core_ui.page import BasePage
-from core_ui.window import Window
 
 
 __all__ = [
@@ -11,7 +10,7 @@ __all__ = [
 ]
 
 
-class MouseOverPage(BasePage, Window):
+class MouseOverPage(BasePage):
     """
     Наведение мыши на элемент может изменить DOM и сделать элемент недоступным.
 
@@ -38,6 +37,3 @@ class MouseOverPage(BasePage, Window):
             locator_type=By.ID,
             locator_path='clickCount',
         )
-
-    def mouseover_to_original_element_btn(self) -> None:
-        self.mouseover_to_element(self.original_element_btn.element)

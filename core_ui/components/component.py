@@ -121,8 +121,14 @@ class Component:
             message=f'Can\'t find element on the page {self.locator}',
         )
 
-    def check_text(self, text: str) -> bool:
-        return self.element.text == text
-
     def get_attribute(self, name: str) -> str:
+        """
+        Получение значения по атрибуту элемента
+        """
         return self.element.get_attribute(name)
+
+    def check_text(self, text: str) -> bool:
+        """
+        Проверка текста
+        """
+        return self.element.text == text

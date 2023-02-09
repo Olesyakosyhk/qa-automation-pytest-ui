@@ -23,4 +23,4 @@ class TestClientSideDelayPage:
             playground_page.client_side_delay_page.blue_button.click()
 
         with allure.step('Проверка ожидания появления текста метки'):
-            assert playground_page.client_side_delay_page.check_label_text_is_present()
+            assert playground_page.client_side_delay_page.label.check_text(text='Data calculated on the client side.')

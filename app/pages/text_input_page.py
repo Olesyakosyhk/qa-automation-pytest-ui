@@ -17,8 +17,6 @@ class TextInputPage(BasePage):
     Page URL:
         http://uitestingplayground.com/textinput
     """
-    DEFAULT_TEXT_BTN = "Button That Should Change it's Name Based on Input Value"
-
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -29,6 +27,3 @@ class TextInputPage(BasePage):
             locator_type=By.ID,
             locator_path='newButtonName',
         )
-
-    def check_default_text_blue_btn(self) -> bool:
-        return self.blue_button.check_text(text=self.DEFAULT_TEXT_BTN)

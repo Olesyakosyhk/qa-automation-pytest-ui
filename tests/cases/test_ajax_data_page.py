@@ -27,4 +27,4 @@ class TestAJAXDataPage:
             playground_page.ajax_data_page.blue_button.click()
 
         with allure.step('Проверка лейбла'):
-            assert playground_page.ajax_data_page.check_label_is_present()
+            assert playground_page.ajax_data_page.label.element

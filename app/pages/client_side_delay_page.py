@@ -25,7 +25,3 @@ class ClientSideDelayPage(BasePage):
             locator_type=By.CSS_SELECTOR,
             locator_path='[class="bg-success"]',
         )
-
-    def check_label_text_is_present(self) -> bool:
-        if self.label.find_and_wait_element(timeout=15):
-            return self.label.check_text(text='Data calculated on the client side.')

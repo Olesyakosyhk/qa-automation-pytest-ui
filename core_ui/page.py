@@ -73,7 +73,7 @@ class BasePage(PageURL):
     def find_staleness_of_element(
             self,
             element: WebElement,
-            timeout: int = 40,
+            timeout: int = 20,
     ) -> WebElement:
         """
         Для определения отсутствия элемента, ранее присутствующего в DOM страницы.
@@ -100,16 +100,3 @@ class BasePage(PageURL):
             method=EC.text_to_be_present_in_element(element, text),
             message=f'Can\'t find element on the page {element}',
         )
-
-    def is_element_present(
-            self,
-            locator: Locator,
-    ) -> bool:
-        """
-        Для нахождения видимого элемента в DOM страницы.
-        """
-        result = True
-        if self.find_and_wait_element(locator) is False:
-            result = False
-
-        return result

@@ -32,6 +32,3 @@ class AJAXDataPage(BasePage):
             locator_type=By.CSS_SELECTOR,
             locator_path='[class="bg-success"]',
         )
-
-    def check_label_is_present(self) -> bool:
-        return bool(self.label.element)

@@ -20,7 +20,7 @@ class TestMouseOverPage:
             playground_page.mouse_over_page.go_to_page_by_url()
 
         with allure.step('Навести курсор мыши на кнопку'):
-            playground_page.mouse_over_page.mouseover_to_original_element_btn()
+            playground_page.mouse_over_page.original_element_btn.mouseover()
 
         with allure.step('2 клика по ссылке'):
             playground_page.mouse_over_page.modified_element_button.click(count=2)
