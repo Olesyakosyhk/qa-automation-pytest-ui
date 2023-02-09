@@ -19,7 +19,7 @@ class ProgressBarPage(BasePage):
     """
     TARGET_PERCENT = '75'
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
 
         self.blue_button = BlueButton(driver=self.driver)

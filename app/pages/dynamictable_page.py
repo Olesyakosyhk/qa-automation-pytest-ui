@@ -21,7 +21,7 @@ class DynamicTablePage(BasePage):
     BROWSER_NAME = 'Chrome'
     CPU = 'CPU'
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
 
         self.value_chrome_cpu = Component(

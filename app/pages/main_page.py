@@ -17,7 +17,7 @@ class MainPage(BasePage):
             http://uitestingplayground.com/
         """
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
 
         self.dynamic_id_link = Link(

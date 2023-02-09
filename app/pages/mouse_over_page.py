@@ -18,7 +18,7 @@ class MouseOverPage(BasePage):
         http://uitestingplayground.com/mouseover
     """
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
         self.action_chains = ActionChains(self.driver)
 

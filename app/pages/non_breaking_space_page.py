@@ -17,7 +17,7 @@ class NonBreakingSpacePage(BasePage):
         http://uitestingplayground.com/nbsp
     """
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
 
         self.my_button = Button(
