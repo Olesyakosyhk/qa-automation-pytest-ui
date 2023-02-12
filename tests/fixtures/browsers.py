@@ -1,8 +1,8 @@
 import pytest
 from selenium.webdriver.remote.webdriver import WebDriver
-from utils.browser import get_browser_local
 
 from core.settings import INCLUDE_BROWSERS
+from tests.utils.browser import get_browser_local
 
 
 __all__ = [
