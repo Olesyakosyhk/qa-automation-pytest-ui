@@ -52,6 +52,16 @@ Playground](http://uitestingplayground.com)
 - проверки
 
 
+## Запуск 
+1. Установка зависимостей 
+```
+pip install -r requirements.txt
+```
+2. Запуск всех тестов 
+```
+pytest tests
+```
+
 Библиотеки и фреймворки
 ---
 | Название                                                      | Назначение                    | 
